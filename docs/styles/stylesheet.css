@@ -44,6 +44,16 @@ header {
 	line-height: 0.6;
 }
 
+#mainheader {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	background-color: black;
+	padding: 20px 0px 0px 0px;
+	font-size: 90px;
+	transition: 0.4s;
+}
+
 header a {
 	text-decoration: none;
 }
@@ -55,6 +65,7 @@ header a:hover {
 main, footer{
 	width: 80%;
 	margin: auto;
+	padding-top: 80px;
 }
 
 img {

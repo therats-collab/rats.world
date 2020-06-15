@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-<title>rats.world musings</title>
+<title>projects / rats.world</title>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="styles/stylesheet.css" type="text/css">
 </head>
 
 <body>
   <header id="mainheader">
-    <h1><a href="index.html">rats.world musings</a></h1>
+    <a href="index.html">the world of rats</a>
     
     <nav>
         <ul id="navigation">
@@ -33,8 +33,21 @@
     <hr>
     <p>Feeling lost? Like you have no goal in life? Like you're covered in dirt and wet leaves? Like you're an earthworm? Are you an earthworm? Kinda sounds like you're an earthworm, actually. <a href="mailto:support@rats.world">I'm here to help</a><a rel="me" href="https://plural.cafe/@rats">.</a></p>
     <p>♡2020 Copying Art is an act of love. Please copy and share.</p>
-    
+
 </footer>
+<script>
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 160 || document.documentElement.scrollTop > 160) {
+    document.getElementById("mainheader").style.padding = "8px 0px 0px 0px";
+    document.getElementById("mainheader").style.fontSize = "50px";
+  } else {
+    document.getElementById("mainheader").style.padding = "20px 0px 0px 0px";
+    document.getElementById("mainheader").style.fontSize = "90px";
+  }
+}
+</script>
 </body> 
     <!-- hi there person looking at my shitty website! -->
 </html>
