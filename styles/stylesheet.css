@@ -53,7 +53,7 @@ header a:hover {
 }
 
 main, footer, #navigation {
-	width: 70%;
+	width: 80%;
 	margin: auto;
 }
 
@@ -126,9 +126,8 @@ a:hover {
 
 table {
 	width: 100%;
-	font-size: 16pt;
-	padding-right: 4%;
-	margin-left: -2%;
+	font-size: 14pt;
+	padding: 0;
     text-align: center;
     border-collapse: collapse;
     border: 2px solid #313131;
@@ -136,16 +135,15 @@ table {
 }
 
 td {
-	padding-bottom: 3px;
-    padding-top: 3px;
+    padding: 10px 3px;
 }
 
 #todo th {
     padding-top: 12px;
     padding-bottom: 12px;
-    padding-left:8px;
-    padding-right:8px;
-    text-align: left;
+    padding-left:12px;
+    padding-right:12px;
+    text-align: center;
     background-color: #1b1b1b;
     border-top: 2px solid #1b1b1b;
     border-bottom: 12px solid #F70;
@@ -161,31 +159,32 @@ progress {
 	display:inline-block;
 	width: 140px;
 	height:20px;
-	padding:0;
-	margin:0;
+	margin:-25px, 0px, 20px, 0px;
 	background:none;
 	border: 0;
 	border-radius: 15px;
-	text-align: left;
-	position:relative;
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 0.8em;
+	text-align: center;
+    position: relative;
 }
 progress::-webkit-progress-bar {
 	height:11px;
 	width:auto;
-	margin: 5px 20px;
+	margin:-25px, 0px, 20px, 0px;
 	background-color: #222222;
 	border-radius: 15px;    
 }
 progress::-webkit-progress-value {
 	height:11px;
-	margin:0px;
+	margin:-25px, 0px, 20px, 0px;
 	background: #F70;
 	border-radius: 15px;
 }
 
-
+progress:after {
+	margin:10px;
+	padding:0;
+	content: attr(value) '%';
+}
 time {
 	color: #ccc;
 }
@@ -347,5 +346,5 @@ you weirdo. */
 	font-family: "IBM Plex Sans";
 	font-style: italic;
 	font-weight: bold;
-	src: url((../fonts/IBMPlexSans-BoldItalic.woff2) format("woff2");
+	src: url(../fonts/IBMPlexSans-BoldItalic.woff2) format("woff2");
 }
