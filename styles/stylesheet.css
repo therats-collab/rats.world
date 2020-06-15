@@ -1,0 +1,302 @@
+html {
+	margin-top: 75px;
+}
+
+body {
+	background-color: black;
+	font-family: "IBM Plex Serif", "Liberation Serif", "FreeSerif", serif;
+	color: #ccc;
+}
+.rose { 
+	color: #E397C9;
+}
+.kanaya {
+	color: #008141;
+}
+.karkat {
+	color: #626262;
+}
+.nathan { 
+	color: #76c489;
+}
+.noah {
+	color: #eb9952;
+}
+.kidtz {
+	color: #43e8e8;
+}
+.alice {
+	color: #8ed93f;
+}
+.kevin {
+	color: #bc5620;
+}
+.cecil {
+	color: #68558c;
+}
+.unknown {
+	color: #aaaaaa;
+}
+header {
+	font-size: 108pt;
+	font-weight: bold;
+	text-align: center;
+	line-height: 0.6;
+}
+
+header a {
+	text-decoration: none;
+}
+
+header a:hover {
+	text-decoration: none;
+}
+
+main, footer, #navigation {
+	width: 70%;
+	margin: auto;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+h1 {
+	font-family: "IBM Plex Sans", "Liberation Sans", "FreeSans", sans;
+	font-size: 52pt;
+	text-align: center;
+	color: white;
+	margin-top: 50px;
+}
+
+h2 {
+	font-family: "IBM Plex Sans", "Liberation Sans", "FreeSans", sans;
+	font-size: 36pt;
+	text-align: center;
+	color: white;
+	margin-bottom: -5px;
+}
+
+h2 a {
+	text-decoration: none;
+	color: white;
+}
+
+h2 a:hover {
+	color: #B5D1B1;
+}
+
+h3 {
+	font-family: "IBM Plex Sans", "Liberation Sans", "FreeSans", sans;
+	font-size: 22pt;
+	color: white;
+	margin-bottom: 20px;
+}
+
+h3 a {
+	text-decoration: none;
+	color: white;
+}
+
+h3 a:hover {
+	color: #B5D1B1;
+}
+
+p {
+	font-size: 16pt;
+	text-align: left;
+	hyphens: auto;
+	line-height: 1.5;
+	text-indent: 32pt;
+}
+
+p a:hover {
+	text-decoration: none;
+}
+
+a {
+	color: white;
+}
+
+a:hover {
+	text-decoration: underline;
+	color: #B5D1B1;
+}
+
+table {
+	width: 100%;
+	font-size: 16pt;
+	padding-right: 4%;
+	margin-left: -2%;
+	text-align: center;
+}
+
+td {
+	padding-bottom: 3px;
+	padding-top: 3px;
+}
+
+time {
+	color: #ccc;
+}
+
+summary {
+	font-family: "IBM Plex Sans", "Liberation Sans", "FreeSans", sans;
+	font-weight: bold;
+	color: white;
+	cursor: pointer;
+	width: 240px;
+	height: 50px;
+	text-align: center;
+	margin: auto;
+	margin-top: 30px;
+}
+
+.bigcenter {
+	text-align: center;
+	font-size: 34pt;
+}
+
+.preview {
+	float: left;
+}
+
+.center {
+	text-align: center;
+}
+
+.hangover-subheader {
+	font-weight: normal;
+	margin-top: -20px;
+	text-align: center;
+}
+
+.date {
+	text-align: center;
+	font-size: 32pt;
+	margin-top: -35px;
+}
+
+#subheader {
+	font-size: 20pt;
+	font-weight: normal;
+}
+
+#synopsis {
+	margin-top: 18pt;
+	font-size: 27pt;
+	cursor: auto;
+}
+
+#synopsis p {
+	line-height: 1.25;
+}
+
+#navigation, .navigation {
+	font-family: "IBM Plex Sans", "Liberation Sans", "FreeSans", sans;
+	font-size: 27pt;
+	text-align: center;
+	width: 100%;
+}
+
+#navigation a:hover {
+	text-decoration: none;
+}
+
+#navigation h2 {
+	margin-bottom: 20px;
+}
+
+b, strong {
+	color: white;
+}
+
+footer {
+	line-height: 2.4pt;
+	margin-bottom: 50px;
+	margin-top: 30px;
+}
+
+footer p {
+	text-align: center;
+	font-size: 12pt;
+	margin-bottom: 30px;
+	margin-left: -42px;
+}
+
+footer img {
+	image-rendering: -moz-crisp-edges;
+	image-rendering: -o-crisp-edges;
+	image-rendering: -webkit-optimize-contrast;
+	image-rendering: pixelated;
+	image-rendering: optimize-contrast;
+	-ms-interpolation-mode: nearest-neighbor;
+	image-rendering: crisp-edges;
+}
+
+
+::-moz-selection {
+	color: black;
+	background: #B5D1B1;
+}
+
+::selection {
+	color: black;
+	background: #B5D1B1;
+}
+
+/* Web font buggery ahead.
+There are no local font declarations
+because nobody has IBM Plex installed
+you weirdo. */
+
+/* Serif fonts */
+
+@font-face {
+	font-family: "IBM Plex Serif";
+	font-style: normal;
+	src: url(fonts/IBMPlexSerif-Regular.woff2) format("woff2");
+}
+
+@font-face {
+	font-family: "IBM Plex Serif";
+	font-weight: bold;
+	src: url(fonts/IBMPlexSerif-Bold.woff2) format("woff2");
+}
+@font-face {
+	font-family: "IBM Plex Serif";
+	font-style: italic;
+	src: url(fonts/IBMPlexSerif-Italic.woff2) format("woff2");
+}
+@font-face {
+	font-family: "IBM Plex Serif";
+	font-style: italic;
+	font-weight: bold;
+	src: url(fonts/IBMPlexSerif-BoldItalic.woff2) format("woff2");
+}
+
+/* Sans fonts */
+
+@font-face {
+	font-family: "IBM Plex Sans";
+	font-style: normal;
+	src: url(fonts/IBMPlexSans-Regular.woff2) format("woff2");
+}
+
+@font-face {
+	font-family: "IBM Plex Sans";
+	font-weight: bold;
+	src: url(fonts/IBMPlexSans-Bold.woff2) format("woff2");
+}
+@font-face {
+	font-family: "IBM Plex Sans";
+	font-style: italic;
+	src: url(fonts/IBMPlexSans-Italic.woff2) format("woff2");
+}
+@font-face {
+	font-family: "IBM Plex Sans";
+	font-style: italic;
+	font-weight: bold;
+	src: url(fonts/IBMPlexSans-BoldItalic.woff2) format("woff2");
+}
