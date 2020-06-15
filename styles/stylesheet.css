@@ -305,24 +305,24 @@ you weirdo. */
 @font-face {
 	font-family: "IBM Plex Serif";
 	font-style: normal;
-	src: url(fonts/IBMPlexSerif-Regular.woff2) format("woff2");
+	src: url(../fonts/IBMPlexSerif-Regular.woff2) format("woff2");
 }
 
 @font-face {
 	font-family: "IBM Plex Serif";
 	font-weight: bold;
-	src: url(fonts/IBMPlexSerif-Bold.woff2) format("woff2");
+	src: url(../fonts/IBMPlexSerif-Bold.woff2) format("woff2");
 }
 @font-face {
 	font-family: "IBM Plex Serif";
 	font-style: italic;
-	src: url(fonts/IBMPlexSerif-Italic.woff2) format("woff2");
+	src: url(../fonts/IBMPlexSerif-Italic.woff2) format("woff2");
 }
 @font-face {
 	font-family: "IBM Plex Serif";
 	font-style: italic;
 	font-weight: bold;
-	src: url(fonts/IBMPlexSerif-BoldItalic.woff2) format("woff2");
+	src: url(../fonts/IBMPlexSerif-BoldItalic.woff2) format("woff2");
 }
 
 /* Sans fonts */
@@ -330,22 +330,22 @@ you weirdo. */
 @font-face {
 	font-family: "IBM Plex Sans";
 	font-style: normal;
-	src: url(fonts/IBMPlexSans-Regular.woff2) format("woff2");
+	src: url(../fonts/IBMPlexSans-Regular.woff2) format("woff2");
 }
 
 @font-face {
 	font-family: "IBM Plex Sans";
 	font-weight: bold;
-	src: url(fonts/IBMPlexSans-Bold.woff2) format("woff2");
+	src: url(../fonts/IBMPlexSans-Bold.woff2) format("woff2");
 }
 @font-face {
 	font-family: "IBM Plex Sans";
 	font-style: italic;
-	src: url(fonts/IBMPlexSans-Italic.woff2) format("woff2");
+	src: url(../fonts/IBMPlexSans-Italic.woff2) format("woff2");
 }
 @font-face {
 	font-family: "IBM Plex Sans";
 	font-style: italic;
 	font-weight: bold;
-	src: url(fonts/IBMPlexSans-BoldItalic.woff2) format("woff2");
+	src: url((../fonts/IBMPlexSans-BoldItalic.woff2) format("woff2");
 }
