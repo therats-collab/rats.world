@@ -1,5 +1,5 @@
 html {
-	margin-top: 75px;
+	margin-top: 50px;
 }
 
 body {
@@ -52,7 +52,7 @@ header a:hover {
 	text-decoration: none;
 }
 
-main, footer, #navigation {
+main, footer{
 	width: 80%;
 	margin: auto;
 }
@@ -72,7 +72,7 @@ h1 {
 
 h2 {
 	font-family: "IBM Plex Sans", "Liberation Sans", "FreeSans", sans;
-	font-size: 36pt;
+	font-size: 28pt;
 	text-align: center;
 	color: white;
 	margin-bottom: 5px;
@@ -90,8 +90,9 @@ h2 a:hover {
 h3 {
 	font-family: "IBM Plex Sans", "Liberation Sans", "FreeSans", sans;
 	font-size: 22pt;
+	text-align: center;
 	color: white;
-	margin-bottom: 20px;
+	margin-bottom: 25px;
 }
 
 h3 a {
@@ -118,7 +119,9 @@ p a:hover {
 a {
 	color: white;
 }
-
+#currentLink {
+	color: #F70;
+ }
 a:hover {
 	text-decoration: underline;
 	color: #B5D1B1;
@@ -138,7 +141,7 @@ td {
     padding: 10px 3px;
 }
 
-#todo th {
+th {
     padding-top: 12px;
     padding-bottom: 12px;
     padding-left:12px;
@@ -240,21 +243,35 @@ summary {
 #synopsis p {
 	line-height: 1.25;
 }
+#navigation li { 
+	display: inline-block; 
+	text-align: center;
+}
+
+li a {
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 0px 20px;
+	text-decoration: none;
+  }
 
 #navigation, .navigation {
 	font-family: "IBM Plex Sans", "Liberation Sans", "FreeSans", sans;
-	font-size: 27pt;
+	font-size: 24px;
 	text-align: center;
-	width: 100%;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #333;
 }
 
 #navigation a:hover {
 	text-decoration: none;
+	color: #F70;
 }
 
-#navigation h2 {
-	margin-bottom: 20px;
-}
 
 b, strong {
 	color: white;
