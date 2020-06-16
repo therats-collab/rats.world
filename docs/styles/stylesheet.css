@@ -112,7 +112,7 @@ h3 a {
 }
 
 h3 a:hover {
-	color: #B5D1B1;
+	color: #dba36a;
 }
 
 p {
@@ -135,7 +135,7 @@ a {
  }
 a:hover {
 	text-decoration: underline;
-	color: #B5D1B1;
+	color: #dba36a;
 }
 
 table {
@@ -280,7 +280,7 @@ li a {
 
 #navigation a:hover {
 	text-decoration: none;
-	color: #F70;
+	color: #dba36a;
 }
 
 
