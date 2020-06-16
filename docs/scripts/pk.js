@@ -101,7 +101,7 @@ async function updatePK(){
 
 
         
-        $("#fronterID").attr("src", #fronter0Avatar));
+        $("#fronterID").attr("src", fronter0Avatar));
           }
 
         })    
