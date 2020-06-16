@@ -92,7 +92,7 @@ async function updatePK(){
           fronterAvatar = data.members[i].avatar_url
           fronterAvatarList.push(fronterAvatar)
           fronterDesc = data.members[i].description
-          fronterDescriptionList.push(fronterDesc)
+          fronterDescList.push(fronterDesc)
           sessionStorage.setItem("fronters", longFormatter.format(fronterNameList))
         $("#ratFronters").text(sessionStorage.getItem("fronters"))
         
