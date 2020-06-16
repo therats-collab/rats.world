@@ -71,7 +71,7 @@ async function updatePK(){
       $("#fronter0Pronouns").text(sessionStorage.getItem("fronter0Pronouns"))
       $("#fronter0Avatar").text(sessionStorage.getItem("fronter0Avatar"))
       $("#fronter0Desc").text(sessionStorage.getItem("fronter0Desc"))
-      $("#fronterID").attr("src", fronterAvatarList[0]).src;
+      $("#fronterID").attr("src", fronterAvatarList[0]);
       console.log(fronter0Name)
     } else {
       jQuery.get("https://api.pluralkit.me/v1/s/jjorc/fronters", function (data){
