@@ -242,7 +242,9 @@ summary {
 }
 
 #subheader {
-	font-size: 20pt;
+	font-size: 10px;
+	margin: 2px;
+	text-align: center;
 	font-weight: normal;
 }
 
