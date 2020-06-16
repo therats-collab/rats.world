@@ -102,7 +102,7 @@ async function updatePK(){
         $("#fronter0Pronouns").text(sessionStorage.getItem("fronter0Pronouns"))
         sessionStorage.setItem("fronter0Avatar", fronterAvatarList[0])
         $("#fronter0Avatar").text(sessionStorage.getItem("fronter0Avatar"))
-        $("#fronterID").src = $("#fronter0Avatar")
+        $("#fronterID").attr("src", fronterAvatarList[0]).src;
         sessionStorage.setItem("fronter0Desc", fronterDescList[0])
         $("#fronter0Desc").text(sessionStorage.getItem("fronter0Desc"))
           }
