@@ -71,7 +71,7 @@ async function updatePK(){
       $("#fronter0Pronouns").text(sessionStorage.getItem("fronter0Pronouns"))
       $("#fronter0Avatar").text(sessionStorage.getItem("fronter0Avatar"))
       $("#fronter0Desc").text(sessionStorage.getItem("fronter0Desc"))
-      $("#fronterID").attr("src", $("#fronter0Avatar"));
+      $("#fronterID").attr("src", fronter0Avatar);
       console.log(fronter0Name)
     } else {
 
@@ -101,7 +101,7 @@ async function updatePK(){
 
 
         
-        $("#fronterID").attr("src", $("#fronter0Avatar"));
+        $("#fronterID").attr("src", #fronter0Avatar));
           }
 
         })    
