@@ -49,18 +49,18 @@ async function updatePK(){
 
 
 
-      // get desc + sysname
-    if(sessionStorage.getItem("desc")){
-    	$("#ratDesc").text(sessionStorage.getItem("desc"))
-    	$("#ratSysName").text(sessionStorage.getItem("sysName"))
-    } else {
-    	jQuery.get("https://api.pluralkit.me/v1/s/jjorc", function (data){
-    	sessionStorage.setItem("desc", data.description)
-    	sessionStorage.setItem("sysName", data.name)
-    	$("#ratDesc").text(sessionStorage.getItem("desc"))
-    	$("#ratSysName").text(sessionStorage.getItem("sysName"))
-    	})
-    }
+    //   // get desc + sysname
+    // if(sessionStorage.getItem("desc")){
+    // 	$("#ratDesc").text(sessionStorage.getItem("desc"))
+    // 	$("#ratSysName").text(sessionStorage.getItem("sysName"))
+    // } else {
+    // 	jQuery.get("https://api.pluralkit.me/v1/s/jjorc", function (data){
+    // 	sessionStorage.setItem("desc", data.description)
+    // 	sessionStorage.setItem("sysName", data.name)
+    // 	$("#ratDesc").text(sessionStorage.getItem("desc"))
+    // 	$("#ratSysName").text(sessionStorage.getItem("sysName"))
+    // 	})
+    // }
     
 
 
@@ -81,6 +81,7 @@ async function updatePK(){
       $("#fronter0Pronouns").text(sessionStorage.getItem("fronter0Pronouns"))
       $("#fronter0Avatar").text(sessionStorage.getItem("fronter0Avatar"))
       $("#fronter0Desc").text(sessionStorage.getItem("fronter0Desc"))
+      console.log(fronter0Name)
     } else {
       jQuery.get("https://api.pluralkit.me/v1/s/jjorc/fronters", function (data){
         for (i in data.members) {
@@ -92,8 +93,7 @@ async function updatePK(){
           fronterAvatarList.push(fronterAvatar)
           fronterDesc = data.members[i].description
           fronterDescriptionList.push(fronterDesc)
-          }
-        sessionStorage.setItem("fronters", longFormatter.format(fronterNameList))
+          sessionStorage.setItem("fronters", longFormatter.format(fronterNameList))
         $("#ratFronters").text(sessionStorage.getItem("fronters"))
         
         sessionStorage.setItem("fronter0Name", fronterNameList[0])
@@ -104,9 +104,12 @@ async function updatePK(){
         $("#fronter0Avatar").text(sessionStorage.getItem("fronter0Avatar"))
         sessionStorage.setItem("fronter0Desc", fronterDescList[0])
         $("#fronter0Desc").text(sessionStorage.getItem("fronter0Desc"))
+          }
+
+        })    
+        
        
         
-        })    
   }
 }
 
