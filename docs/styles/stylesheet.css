@@ -63,15 +63,26 @@ header a:hover {
 	text-decoration: none;
 }
 
-main, footer{
+main {
 	width: 80%;
 	margin: auto;
 	padding-top: 80px;
 }
 
+
+footer {
+	width: 80%;
+	margin: auto;
+}
+
 img {
-	max-width: 100%;
-	height: auto;
+	width: 30%;
+	padding: 0;
+	display: block;
+}
+
+img.middle {
+	vertical-align: middle;
 }
 
 h1 {
@@ -142,22 +153,20 @@ a:hover {
 table {
 	width: 100%;
 	font-size: 14pt;
-	padding: 0;
     text-align: center;
     border-collapse: collapse;
-    border: 2px solid #313131;
 
 }
+
 
 td {
     padding: 10px 3px;
 }
-
+#nopadding {
+	padding: 0 !important;
+}
 th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    padding-left:12px;
-    padding-right:12px;
+    padding: 12px;
     text-align: center;
     background-color: #1b1b1b;
     border-top: 2px solid #1b1b1b;
@@ -167,8 +176,17 @@ th {
     color: white;
 }
 
-#todo tr:nth-child(even){background-color: #0c0c0c;}
-#todo tr:nth-child(odd){background-color: #080808;}
+#pluralkit th {
+	padding: 6px;
+	border-bottom: 6px solid #F70;
+	text-align: left;
+}
+#pluralkit td {
+	text-align: left;
+	width: 33%;
+}
+tr:nth-child(even){background-color: #0c0c0c;}
+tr:nth-child(odd){background-color: #080808;}
 
 progress {
 	display:inline-block;
@@ -226,6 +244,10 @@ summary {
 }
 
 .center {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
 	text-align: center;
 }
 
@@ -242,7 +264,7 @@ summary {
 }
 
 #subheader {
-	font-size: 10px;
+	font-size: 12px;
 	margin: -16px;
 	text-align: center;
 	font-weight: normal;
@@ -257,6 +279,30 @@ summary {
 #synopsis p {
 	line-height: 1.25;
 }
+
+#floatleft {
+	float: left;
+}
+
+#floatright {
+	float:right;
+}
+#pluralkit-container {
+	text-align: center;
+
+}
+#pluralkit {
+	display: inline-block;
+	width: auto;	
+	padding: 10px;
+	padding-left: 25%;
+	padding-right: 25%;
+	table-layout: fixed;
+}
+#pluralkit dl { 
+	text-align: left;
+}
+
 #navigation li { 
 	display: inline-block; 
 	text-align: center;

@@ -9,6 +9,8 @@ async function updatePK(){
         $("#daysSince").text(sessionStorage.getItem("days"))
         $("#ratIDs").text(sessionStorage.getItem("ids"))
         $("#ratNames").text(sessionStorage.getItem("names"))
+        $("#fronter0Name").text(sessionStorage.getItem("fronter0"))
+
     } else {
         jQuery.get("https://api.pluralkit.me/v1/s/jjorc/members", function (data){
         $("#ratCount").text(data.length)
@@ -40,6 +42,8 @@ async function updatePK(){
         }
         sessionStorage.setItem("names",shortFormatter.format(nameList))
         $("#ratNames").text(sessionStorage.getItem("names"))
+        sessionStorage.setItem("fronter0", nameList[0])
+        $("#fronter0Name").text(sessionStorage.getItem("fronter0"))
        
         
         
