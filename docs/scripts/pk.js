@@ -59,6 +59,10 @@ async function updatePK(){
     }
     
 
+    var fronterNameList = []
+    var fronterPronounList = []
+    var fronterAvatarList = []
+    var fronterDescList = []
 
     // get fronter name list
     if(sessionStorage.getItem("fronters")){ // don't re-get stuff you already got 
@@ -67,14 +71,11 @@ async function updatePK(){
       $("#fronter0Pronouns").text(sessionStorage.getItem("fronter0Pronouns"))
       $("#fronter0Avatar").text(sessionStorage.getItem("fronter0Avatar"))
       $("#fronter0Desc").text(sessionStorage.getItem("fronter0Desc"))
-      $("#fronterID").attr("src", fronterAvatarList[0]);
+      $("#fronterID").attr("src", $("#fronter0Avatar"));
       console.log(fronter0Name)
     } else {
 
-      var fronterNameList = []
-      var fronterPronounList = []
-      var fronterAvatarList = []
-      var fronterDescList = []
+
 
       jQuery.get("https://api.pluralkit.me/v1/s/jjorc/fronters", function (data){
         for (i in data.members) { // get every fronter's: name, pronouns, avatar url, + description in their own lists, and also formats list of names into a prebby thing
@@ -100,7 +101,7 @@ async function updatePK(){
 
 
         
-        $("#fronterID").attr("src", fronterAvatarList[0]);
+        $("#fronterID").attr("src", $("#fronter0Avatar"));
           }
 
         })    
