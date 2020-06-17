@@ -134,10 +134,7 @@ async function updatePK() {
       $("#fronter7ID").attr("src", sessionStorage.getItem("fronter7Avatar"));
       $("#fronter8ID").attr("src", sessionStorage.getItem("fronter8Avatar"));
       $("#fronter9ID").attr("src", sessionStorage.getItem("fronter9Avatar"));
-      totalFronters = (sessionStorage.getItem("ratFronterCount") - 1);
-      if (totalFronters > 1) { 
-        document.getElementById("currentfronters").innerText = "current fronters:";
-      }
+      totalFronters = sessionStorage.getItem("ratFronterCount");
       console.log("[DEBUG] " + totalFronters + " total fronters (counting from 0).");
 
   } else {
@@ -309,7 +306,12 @@ async function updatePK() {
   });
           }
 function nextMember() {
-  $( "#nextfronter" ).click(function() {  
+  $( "#nextfronter" ).click(function() {
+    $("#prevfronter").css('pointer-events', 'auto');
+    $("#prevfronter").css('color', 'white');
+    if (totalFronters > 1) { 
+      document.getElementById("currentfronters").innerText = "current fronters:";
+    }  
     if (currentMember == 8) {
       // if 8th fronter, change to 9th fronter
       document.getElementById("fronter8Name").id = "fronter9Name";
@@ -341,8 +343,7 @@ function nextMember() {
       $("#fronter8ID").attr("src", sessionStorage.getItem("fronter8Avatar"));
       console.log("[LOG] User moved from member 7 > 8.");
       currentMember = 8;
-      document.getElementById("previous").innerText = "<";
-      document.getElementById("next").innertext = ">";
+
       
       } else {
     if (currentMember == 6) {
@@ -358,8 +359,7 @@ function nextMember() {
       $("#fronter4ID").attr("src", sessionStorage.getItem("fronter4Avatar"));
       console.log("[LOG] User moved from member 3 > 4.");
       currentMember = 4;
-      document.getElementById("previous").innerText = "<";
-      document.getElementById("next").innertext = ">";
+
       
       } else {
     if (currentMember == 5) {
@@ -375,8 +375,7 @@ function nextMember() {
       $("#fronter4ID").attr("src", sessionStorage.getItem("fronter4Avatar"));
       console.log("[LOG] User moved from member 3 > 4.");
       currentMember = 4;
-      document.getElementById("previous").innerText = "<";
-      document.getElementById("next").innertext = ">";
+
     
       } else {
     if (currentMember == 4) {
@@ -392,8 +391,7 @@ function nextMember() {
       $("#fronter4ID").attr("src", sessionStorage.getItem("fronter4Avatar"));
       console.log("[LOG] User moved from member 3 > 4.");
       currentMember = 4;
-      document.getElementById("previous").innerText = "<";
-      document.getElementById("next").innertext = ">";
+
       
       } else {
     if (currentMember == 3) {
@@ -409,8 +407,7 @@ function nextMember() {
       $("#fronter4ID").attr("src", sessionStorage.getItem("fronter4Avatar"));
       console.log("[LOG] User moved from member  3 > 4.");
       currentMember = 4;
-      document.getElementById("previous").innerText = "<";
-      document.getElementById("next").innertext = ">";
+
       
       } else {
       if (currentMember == 2) {
@@ -426,8 +423,7 @@ function nextMember() {
       $("#fronter3ID").attr("src", sessionStorage.getItem("fronter3Avatar"));
       console.log("[LOG] User moved from member 2 > 3.");
       currentMember = 3;
-      document.getElementById("previous").innerText = "<";
-      document.getElementById("next").innertext = ">";
+
       
       }
       // if 1st fronter, change to 2nd fronter
@@ -444,8 +440,7 @@ function nextMember() {
       // now the text + id is fronter2
       console.log("[LOG] User moved from member 1 > 2.");
       currentMember = 2;
-      document.getElementById("previous").innerText = "<";
-      document.getElementById("next").innertext = ">";
+
       
       }
       // if 0th fronter, change to 1st fronter
@@ -459,12 +454,8 @@ function nextMember() {
         $("#fronter1Pronouns").text(sessionStorage.getItem("fronter1Pronouns"));
         $("#fronter1Desc").text(sessionStorage.getItem("fronter1Desc"));
         $("#fronter1ID").attr("src", sessionStorage.getItem("fronter1Avatar"));
-        // now the text + id is fronter1, so we show the previous button
-        document.getElementById("previous").innerText = "<";
-        document.getElementById("next").innertext = ">";
         console.log("[LOG] User moved from member 0 > 1. #prevfronter should be visible.");
         currentMember = 1;
-        
         } 
       } 
     }
@@ -472,15 +463,22 @@ function nextMember() {
           // if there are only 2 fronters, remove the next button
   if (parseInt(currentMember) == parseInt(totalFronters)) {
     console.log("[LOG] Hiding next button, at currentMember value of " + currentMember + " and  totalFronters of " + totalFronters + ".");
-    document.getElementById("next").innerText = "";
+    $("#nextfronter").css('pointer-events', 'none');
+    $("#nextfronter").css('color', 'transparent');
+    
   }
   console.log("[DEBUG] Displaying member number " + currentMember + " (counting from 0).");
+  if (totalFronters > 1) { 
+    document.getElementById("currentfronters").innerText = "current fronters: " + (currentMember + 1) + "/" + (parseInt(totalFronters) + 1);
+  }
 
 });
 }
 
 function previousMember() {
   $( "#prevfronter" ).click(function() {
+    $("#nextfronter").css('pointer-events', 'auto');
+    $("#nextfronter").css('color', 'white');
     // if 0th fronter, log to console.
     if (currentMember == 0)  {
       console.log("[ERROR] User clicked the #prevfronter button, but were already on the 0th fronter. (...how?)");
@@ -499,9 +497,8 @@ function previousMember() {
         // now the text + id is fronter0, so we hide the previous button
         console.log("[LOG] User moved from member 1 > 0. #prevfronter should now be hidden.");
         currentMember = 0;
-  
-        document.getElementById("previous").innerText = "";
-        document.getElementById("next").innerText = ">";
+        $("#prevfronter").css('pointer-events', 'none');
+        $("#prevfronter").css('color', 'transparent');
       }
       
       if (currentMember == 2) {
@@ -517,9 +514,6 @@ function previousMember() {
         $("#fronter1ID").attr("src", sessionStorage.getItem("fronter1Avatar"));
         console.log("[LOG] User moved from member 2 > 1.");
         currentMember = 1;
-        
-        document.getElementById("previous").innerText = "<";
-        document.getElementById("next").innerText = ">";
       }
       if (currentMember == 3) {
         // if 3rd fronter, change to 2nd fronter
@@ -534,9 +528,6 @@ function previousMember() {
         $("#fronter2ID").attr("src", sessionStorage.getItem("fronter2Avatar"));
         console.log("[LOG] User moved from member 3 > 2.");
         currentMember = 2;
-  
-        document.getElementById("previous").innerText = "<";
-        document.getElementById("next").innerText = ">";
       }
   
       if (currentMember == 4) {
@@ -552,9 +543,6 @@ function previousMember() {
         $("#fronter3ID").attr("src", sessionStorage.getItem("fronter3Avatar"));
         console.log("[LOG] User moved from member 4 > 3.");
         currentMember = 3;
-  
-        document.getElementById("previous").innerText = "<";
-        document.getElementById("next").innerText = ">";
       }
     
       if (currentMember == 5) {
@@ -570,9 +558,6 @@ function previousMember() {
         $("#fronter4ID").attr("src", sessionStorage.getItem("fronter4Avatar"));
         console.log("[LOG] User moved from member 5 > 4.");
         currentMember = 4;
-  
-        document.getElementById("previous").innerText = "<";
-        document.getElementById("next").innerText = ">";
       }
   
       if (currentMember == 6) {
@@ -588,9 +573,6 @@ function previousMember() {
         $("#fronter5ID").attr("src", sessionStorage.getItem("fronter5Avatar"));
         console.log("[LOG] User moved from member 6 > 5.");
         currentMember = 5;
-  
-        document.getElementById("previous").innerText = "<";
-        document.getElementById("next").innerText = ">";
       }
   
       if (currentMember == 7) {
@@ -606,9 +588,6 @@ function previousMember() {
         $("#fronter6ID").attr("src", sessionStorage.getItem("fronter6Avatar"));
         console.log("[LOG] User moved from member 7 > 6.");
         currentMember = 6;
-  
-        document.getElementById("previous").innerText = "<";
-        document.getElementById("next").innerText = ">";
       }
   
       if (currentMember == 8) {
@@ -624,9 +603,6 @@ function previousMember() {
         $("#fronter8ID").attr("src", sessionStorage.getItem("fronter7Avatar"));
         console.log("[LOG] User moved from member 8 > 7.");
         currentMember = 7;
-  
-        document.getElementById("previous").innerText = "<";
-        document.getElementById("next").innerText = ">";
       }
   
       if (currentMember == 9) {
@@ -642,14 +618,18 @@ function previousMember() {
         $("#fronter8ID").attr("src", sessionStorage.getItem("fronter8Avatar"));
         console.log("[LOG] User moved from member 9 > 8.");
         currentMember = 8;
-        
-        document.getElementById("previous").innerText = "<";
-        document.getElementById("next").innerText = ">";
       }
     }
     console.log("[DEBUG] Displaying member number " + currentMember + " (counting from 0).");
+    
+    if (totalFronters > 1) { 
+      document.getElementById("currentfronters").innerText = "current fronters: " + (currentMember + 1) + "/" + (parseInt(totalFronters) + 1);
+    }
   }
 );
+}
+if (totalFronters > 1) { 
+  document.getElementById("currentfronters").innerText = "current fronters: " + (currentMember + 1) + "/" + (parseInt(totalFronters) + 1);
 }
 previousMember();
 nextMember();

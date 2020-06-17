@@ -187,6 +187,8 @@ th {
 #prevfronter { 
 	float: left;
 	font-family: "Aileron Heavy", "Liberation Sans", "FreeSans", sans;
+	color:transparent;
+	pointer-events: none;
 }
 
 #prevfronter p:hover {
@@ -197,8 +199,9 @@ th {
 #nextfronter {
 	float: right;
 	font-family: "Aileron Heavy", "Liberation Sans", "FreeSans", sans;
-
+	pointer-events: auto;
 }
+
 #nextfronter p:hover {
 	color: #F70;
 	font-weight: bold;
@@ -404,14 +407,14 @@ footer img {
 }
 
 
-::-moz-selection {
-	color: black;
-	background: #B5D1B1;
+::selection {
+    color: none;
+    background: none;
 }
 
-::selection {
-	color: black;
-	background: #B5D1B1;
+::-moz-selection {
+    color: none;
+    background: none;
 }
 
 /* Web font buggery ahead.
