@@ -116,6 +116,21 @@ $( "#prevfronter" ).click(function() {
         $("#fronter1ID").attr("src", sessionStorage.getItem("fronter1Avatar"));
         console.log("User pressed previous button, and went from fronter 2 > 1.")
         currentMember = 1
+    } else {
+      if (currentMember == 3) {
+        // if 3nd fronter, change to 2st fronter
+        document.getElementById("fronter3Name").id = "fronter2Name";
+        document.getElementById("fronter3Pronouns").id = "fronter2Pronouns";
+        document.getElementById("fronter3ID").id = "fronter2ID";
+        document.getElementById("fronter3Desc").id = "fronter2Desc";  
+        // now everything is fronter2, but the text is unchanged!
+        $("#fronter2Name").text(sessionStorage.getItem("fronter2Name"))
+        $("#fronter2Pronouns").text(sessionStorage.getItem("fronter2Pronouns"))
+        $("#fronter2Desc").text(sessionStorage.getItem("fronter2Desc"))
+        $("#fronter2ID").attr("src", sessionStorage.getItem("fronter2Avatar"));
+        console.log("User pressed previous button, and went from fronter 3 > 2.")
+        currentMember = 2
+    }
     }
   }
 }});
