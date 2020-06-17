@@ -89,7 +89,7 @@ async function updatePK() {
 
   } else {
       // if fronters isn't in session storage, harasses the pluralkit API and gets #fronter0Name/#fronter0Pronouns/#fronter0Avatar/#fronter0Desc/#fronterID
-      jQuery.get("https://api.pluralkit.me/v1/s/jjorc/fronters", function(data) {
+      jQuery.get("https://cors-anywhere.herokuapp.com/https://api.pluralkit.me/v1/s/jjorc/fronters", function(data) {
           for (i in data.members) {
               fronterName = data.members[i].display_name || data.members[i].name
               fronterNameList.push(fronterName)
