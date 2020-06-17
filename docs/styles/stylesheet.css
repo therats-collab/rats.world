@@ -40,6 +40,8 @@ body {
 header {
 	font-size: 108pt;
 	font-weight: bold;
+	font-family: "Aileron Heavy", "Liberation Sans", "FreeSans", sans;
+
 	text-align: center;
 	line-height: 0.6;
 }
@@ -86,7 +88,7 @@ img.middle {
 }
 
 h1 {
-	font-family: "IBM Plex Sans", "Liberation Sans", "FreeSans", sans;
+	font-family: "Aileron Heavy", "Liberation Sans", "FreeSans", sans;
 	font-size: 52pt;
 	text-align: center;
 	color: white;
@@ -94,7 +96,7 @@ h1 {
 }
 
 h2 {
-	font-family: "IBM Plex Sans", "Liberation Sans", "FreeSans", sans;
+	font-family: "Aileron Heavy", "Liberation Sans", "FreeSans", sans;
 	font-size: 28pt;
 	text-align: center;
 	color: white;
@@ -111,7 +113,7 @@ h2 a:hover {
 }
 
 h3 {
-	font-family: "IBM Plex Sans", "Liberation Sans", "FreeSans", sans;
+	font-family: "Aileron Heavy", "Liberation Sans", "FreeSans", sans;
 	font-size: 22pt;
 	text-align: center;
 	color: white;
@@ -166,6 +168,8 @@ td {
 	padding: 0 !important;
 }
 th {
+	font-family: "Aileron Heavy", "Liberation Sans", "FreeSans", sans;
+
     padding: 12px;
     text-align: center;
     background-color: #1b1b1b;
@@ -223,7 +227,7 @@ time {
 }
 
 summary {
-	font-family: "IBM Plex Sans", "Liberation Sans", "FreeSans", sans;
+	font-family: "Aileron Heavy", "Liberation Sans", "FreeSans", sans;
 	font-weight: bold;
 	color: white;
 	cursor: pointer;
@@ -317,7 +321,7 @@ li a {
   }
 
 #navigation, .navigation {
-	font-family: "IBM Plex Sans", "Liberation Sans", "FreeSans", sans;
+	font-family: "Aileron Heavy", "Liberation Sans", "FreeSans", sans;
 	font-size: 24px;
 	text-align: center;
 	list-style-type: none;
@@ -402,6 +406,12 @@ you weirdo. */
 }
 
 /* Sans fonts */
+
+@font-face {
+	font-family: "Aileron Heavy";
+	font-style: normal;
+	src: url(../fonts/Aileron-Heavy.woff2) format("woff2");
+}
 
 @font-face {
 	font-family: "IBM Plex Sans";
