@@ -135,6 +135,9 @@ async function updatePK() {
       $("#fronter8ID").attr("src", sessionStorage.getItem("fronter8Avatar"))
       $("#fronter9ID").attr("src", sessionStorage.getItem("fronter9Avatar"))
       totalFronters = sessionStorage.getItem("ratFronterCount")
+      if (totalFronters > 1) { 
+        document.getElementById("currentfronters").innerText = "current fronters:"
+      }
       console.log("[DEBUG] " + totalFronters + " total fronters (counting from 0).")
 
   } else {
@@ -149,23 +152,33 @@ async function updatePK() {
 
 
           for (i in data.members) {
+            fronterName = data.members[i].display_name || data.members[i].name
+            fronterNameList.push(fronterName)
+
             if (String(data.members[i].avatar_url) == String(null)) {
               fronterAvatar = "https://cdn.discordapp.com/avatars/169641538337505280/6a94d004139e2f61906f8e56d5620be8.png"
               fronterAvatarList.push(fronterAvatar)
-              console.log("[DEBUG] null fronterAvatar is " + fronterAvatar + " and fronterAvatarList is " + fronterAvatarList[i])
 
             } else {
               fronterAvatar = data.members[i].avatar_url
               fronterAvatarList.push(fronterAvatar)
-              console.log("[DEBUG] notnull fronterAvatar is " + fronterAvatar + " and fronterAvatarList is " + fronterAvatarList[i])
-
             }
-              fronterName = data.members[i].display_name || data.members[i].name
-              fronterNameList.push(fronterName)
+
+            if (String(data.members[i].pronouns) == String(null)) {
+              fronterPronouns = "unknown"
+              fronterPronounList.push(fronterPronouns)
+            } else {
               fronterPronouns = data.members[i].pronouns
               fronterPronounList.push(fronterPronouns)
+            }
+
+            if (String(data.members[i].description) == (String(null))) { 
+              fronterDesc = "I don't have a description. Either I'm lazy and haven't updated my Pluralkit info, or I'm a generic account like 'others' which isn't a specific person. You tell me."
+              fronterDescList.push(fronterDesc)
+            } else { 
               fronterDesc = data.members[i].description
               fronterDescList.push(fronterDesc)
+            }
           }
           sessionStorage.setItem("fronters", longFormatter.format(fronterNameList))
 
@@ -266,14 +279,8 @@ async function updatePK() {
           totalFronters = (sessionStorage.getItem("ratFronterCount") - 1)
           console.log("[DEBUG] " + totalFronters + " total fronters (counting from 0).")
           previousMember();
-          
-          
-          
       })
   }
-  
-
-
 }
 function nextMember() {
   $( "#nextfronter" ).click(function() {  
@@ -647,8 +654,6 @@ function previousMember() {
         document.getElementById("previous").innerText = "<"
         document.getElementById("next").innerText = ">"
       }
-  
-  
     }
     console.log("[DEBUG] Displaying member number " + currentMember + " (counting from 0).")
   }
