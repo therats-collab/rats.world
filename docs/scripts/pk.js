@@ -149,6 +149,12 @@ async function updatePK() {
         sessionStorage.setItem("ratFronterCount", data.members.length);
         totalFronters = sessionStorage.getItem("ratFronterCount");
         console.log("[DEBUG] " + totalFronters + " total fronters (counting from 1).");
+        totalFronters = totalFronters - 1;
+        if (totalFronters <= 0) {
+          totalFronters = 0;
+        }
+        console.log("[DEBUG] " + totalFronters + " total fronters (counting from 0).");
+
 
 
           for (i in data.members) {
@@ -287,11 +293,9 @@ async function updatePK() {
           $("#fronter8ID").attr("src", sessionStorage.getItem("fronter8Avatar"));
           $("#fronter9ID").attr("src", sessionStorage.getItem("fronter9Avatar"));
           $("#ratFronterCount").text(sessionStorage.getItem("ratFronterCount"));
-          totalFronters = (sessionStorage.getItem("ratFronterCount") - 1);
           if (totalFronters <= 0) {
             totalFronters = 0;
             sessionStorage.setItem("fronter0Desc", "zzz");
-
           }
           console.log("[DEBUG] " + totalFronters + " total fronters (counting from 0).");
                   // if there are 0 fronters, hide next and previous buttons
