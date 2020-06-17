@@ -29,7 +29,14 @@
       <!-- Projectile Word Vomit Ahead! Ye Be Warn'ed -->
         <h2>here is where all my slick js would be</h2>
             <p>whoa so cool, none of this is currently functional at all</p>
+            <div id="prevfronter">
+              <p>< previous</p>
+            </div>
+            <div id="nextfronter">
+              <p>next ></p>
+            </div>
         <h2>current fronter:</h2>
+        
             <table id="pluralkit">
               <tr>
                   <th>name</th>
@@ -42,12 +49,13 @@
                   <td id="nopadding"><img id ="fronter0ID" class="center" src="images/default.png" alt="Avatar of Pluralkit member." width="10%"></td>
               </tr>
               <tr>
-                <th colspan="3">description</th>
+                <th colspan="3">about</th>
               </tr>
               <tr>
                 <td colspan="3"><span id=fronter0Desc>Failed to load.</span></td>
               </tr>
             </table>
+
     </main>
 <footer>
     <hr>
@@ -66,6 +74,29 @@ function scrollFunction() {
     document.getElementById("mainheader").style.fontSize = "90px";
   }
 }
+$( "#prevfronter" ).click(function() {
+  document.getElementById("fronter1Name").id = "fronter0Name";
+  document.getElementById("fronter1Pronouns").id = "fronter0Pronouns";
+  document.getElementById("fronter1ID").id = "fronter0ID";
+  document.getElementById("fronter1Desc").id = "fronter0Desc";
+  $("#fronter0Name").text(sessionStorage.getItem("fronter0Name"))
+  $("#fronter0Pronouns").text(sessionStorage.getItem("fronter0Pronouns"))
+  $("#fronter0ID").text(sessionStorage.getItem("fronter0ID"))
+  $("#fronter0Desc").text(sessionStorage.getItem("fronter0Desc"))
+  $("#fronter0ID").attr("src", sessionStorage.getItem("fronter0Avatar"));
+});
+
+$("#nextfronter").click(function() {
+  document.getElementById("fronter0Name").id = "fronter1Name";
+  document.getElementById("fronter0Pronouns").id = "fronter1Pronouns";
+  document.getElementById("fronter0ID").id = "fronter1ID";
+  document.getElementById("fronter0Desc").id = "fronter1Desc";
+  $("#fronter1Name").text(sessionStorage.getItem("fronter1Name"))
+  $("#fronter1Pronouns").text(sessionStorage.getItem("fronter1Pronouns"))
+  $("#fronter1ID").text(sessionStorage.getItem("fronter1ID"))
+  $("#fronter1Desc").text(sessionStorage.getItem("fronter1Desc"))
+  $("#fronter1ID").attr("src", sessionStorage.getItem("fronter1Avatar"));
+});
 </script>
 </body> 
     <!-- hi there person looking at my shitty website! -->

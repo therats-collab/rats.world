@@ -184,7 +184,25 @@ th {
     border-right: 2px solid #1b1b1b;
     color: white;
 }
+#prevfronter { 
+	float: left;
+	font-family: "Aileron Heavy", "Liberation Sans", "FreeSans", sans;
+}
 
+#prevfronter p:hover {
+	color: #F70;
+	font-weight: bold;
+}
+
+#nextfronter {
+	float: right;
+	font-family: "Aileron Heavy", "Liberation Sans", "FreeSans", sans;
+}
+#nextfronter p:hover {
+	color: #F70;
+	font-weight: bold;
+
+}
 #pluralkit th {
 	padding: 6px;
 	border-bottom: 6px solid #F70;

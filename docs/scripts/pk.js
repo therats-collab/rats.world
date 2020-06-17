@@ -81,10 +81,15 @@ async function updatePK() {
   if (sessionStorage.getItem("fronters")) {
       $("#ratFronters").text(sessionStorage.getItem("fronters"))
       $("#fronter0Name").text(sessionStorage.getItem("fronter0Name"))
+      $("#fronter1Name").text(sessionStorage.getItem("fronter1Name"))
       $("#fronter0Pronouns").text(sessionStorage.getItem("fronter0Pronouns"))
+      $("#fronter1Pronouns").text(sessionStorage.getItem("fronter1Pronouns"))
       $("#fronter0Avatar").text(sessionStorage.getItem("fronter0Avatar"))
+      $("#fronter1Avatar").text(sessionStorage.getItem("fronter1Avatar"))
       $("#fronter0Desc").text(sessionStorage.getItem("fronter0Desc"))
+      $("#fronter1Desc").text(sessionStorage.getItem("fronter1Desc"))
       $("#fronter0ID").attr("src", sessionStorage.getItem("fronter0Avatar"));
+      $("#fronter1ID").attr("src", sessionStorage.getItem("fronter1Avatar"));
       console.log(fronter0Name)
 
   } else {
@@ -101,16 +106,25 @@ async function updatePK() {
               fronterDescList.push(fronterDesc)
               sessionStorage.setItem("fronters", longFormatter.format(fronterNameList))
               sessionStorage.setItem("fronter0Name", fronterNameList[0])
+              sessionStorage.setItem("fronter1Name", fronterNameList[1])
               sessionStorage.setItem("fronter0Pronouns", fronterPronounList[0])
+              sessionStorage.setItem("fronter1Pronouns", fronterPronounList[1])
               sessionStorage.setItem("fronter0Avatar", fronterAvatarList[0])
+              sessionStorage.setItem("fronter1Avatar", fronterAvatarList[1])
               sessionStorage.setItem("fronter0Desc", fronterDescList[0])
+              sessionStorage.setItem("fronter1Desc", fronterDescList[1])
 
               $("#ratFronters").text(sessionStorage.getItem("fronters"))
               $("#fronter0Name").text(sessionStorage.getItem("fronter0Name"))
+              $("#fronter1Name").text(sessionStorage.getItem("fronter1Name"))
               $("#fronter0Pronouns").text(sessionStorage.getItem("fronter0Pronouns"))
+              $("#fronter1Pronouns").text(sessionStorage.getItem("fronter1Pronouns"))
               $("#fronter0Avatar").text(sessionStorage.getItem("fronter0Avatar"))
+              $("#fronter1Avatar").text(sessionStorage.getItem("fronter1Avatar"))
               $("#fronter0Desc").text(sessionStorage.getItem("fronter0Desc"))
+              $("#fronter1Desc").text(sessionStorage.getItem("fronter1Desc"))
               $("#fronter0ID").attr("src", sessionStorage.getItem("fronter0Avatar"));
+              $("#fronter1ID").attr("src", sessionStorage.getItem("fronter1Avatar"));
           }
       })
   }
