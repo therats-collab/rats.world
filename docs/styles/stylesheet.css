@@ -7,6 +7,13 @@ body {
 	font-family: "IBM Plex Serif", "Liberation Serif", "FreeSerif", serif;
 	color: #ccc;
 }
+#lost {
+	background-color: #E87D22;
+	font-family: "IBM Plex Serif", "Liberation Serif", "FreeSerif", serif;
+	color: #762A0C;
+	text-align: center;
+}
+
 .rose { 
 	color: #E397C9;
 }
@@ -255,6 +262,12 @@ summary {
 	text-align: center;
 }
 
+#lost img {
+
+	margin-left: auto;
+	margin-right: auto;
+}
+
 .hangover-subheader {
 	font-weight: normal;
 	margin-top: -20px;
@@ -339,6 +352,15 @@ li a {
 
 b, strong {
 	color: white;
+}
+
+
+hr {
+	border-top: 1px solid white;
+}
+
+#lost hr {
+	border: 1px solid #762A0C;
 }
 
 footer {
