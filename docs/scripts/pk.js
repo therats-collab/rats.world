@@ -95,6 +95,10 @@ async function updatePK() {
   } else {
       // if fronters isn't in session storage, harasses the pluralkit API and gets #fronter0Name/#fronter0Pronouns/#fronter0Avatar/#fronter0Desc/#fronterID
       jQuery.get("https://cors-anywhere.herokuapp.com/https://api.pluralkit.me/v1/s/jjorc/fronters", function(data) {
+
+        $("#ratFronterCount").text(data.length)
+        sessionStorage.setItem("ratFronterCount", data.length)
+
           for (i in data.members) {
               fronterName = data.members[i].display_name || data.members[i].name
               fronterNameList.push(fronterName)
@@ -113,19 +117,21 @@ async function updatePK() {
               sessionStorage.setItem("fronter1Avatar", fronterAvatarList[1])
               sessionStorage.setItem("fronter0Desc", fronterDescList[0])
               sessionStorage.setItem("fronter1Desc", fronterDescList[1])
-
-              $("#ratFronters").text(sessionStorage.getItem("fronters"))
-              $("#fronter0Name").text(sessionStorage.getItem("fronter0Name"))
-              $("#fronter1Name").text(sessionStorage.getItem("fronter1Name"))
-              $("#fronter0Pronouns").text(sessionStorage.getItem("fronter0Pronouns"))
-              $("#fronter1Pronouns").text(sessionStorage.getItem("fronter1Pronouns"))
-              $("#fronter0Avatar").text(sessionStorage.getItem("fronter0Avatar"))
-              $("#fronter1Avatar").text(sessionStorage.getItem("fronter1Avatar"))
-              $("#fronter0Desc").text(sessionStorage.getItem("fronter0Desc"))
-              $("#fronter1Desc").text(sessionStorage.getItem("fronter1Desc"))
-              $("#fronter0ID").attr("src", sessionStorage.getItem("fronter0Avatar"));
-              $("#fronter1ID").attr("src", sessionStorage.getItem("fronter1Avatar"));
+            
           }
+          $("#ratFronters").text(sessionStorage.getItem("fronters"))
+          $("#fronter0Name").text(sessionStorage.getItem("fronter0Name"))
+          $("#fronter1Name").text(sessionStorage.getItem("fronter1Name"))
+          $("#fronter0Pronouns").text(sessionStorage.getItem("fronter0Pronouns"))
+          $("#fronter1Pronouns").text(sessionStorage.getItem("fronter1Pronouns"))
+          $("#fronter0Avatar").text(sessionStorage.getItem("fronter0Avatar"))
+          $("#fronter1Avatar").text(sessionStorage.getItem("fronter1Avatar"))
+          $("#fronter0Desc").text(sessionStorage.getItem("fronter0Desc"))
+          $("#fronter1Desc").text(sessionStorage.getItem("fronter1Desc"))
+          $("#fronter0ID").attr("src", sessionStorage.getItem("fronter0Avatar"));
+          $("#fronter1ID").attr("src", sessionStorage.getItem("fronter1Avatar"));
+          $("#ratFronterCount").text(sessionStorage.getItem("count"))
+          
       })
   }
 }
