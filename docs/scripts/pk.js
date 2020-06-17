@@ -134,7 +134,7 @@ async function updatePK() {
       $("#fronter7ID").attr("src", sessionStorage.getItem("fronter7Avatar"));
       $("#fronter8ID").attr("src", sessionStorage.getItem("fronter8Avatar"));
       $("#fronter9ID").attr("src", sessionStorage.getItem("fronter9Avatar"));
-      totalFronters = sessionStorage.getItem("ratFronterCount");
+      totalFronters = (sessionStorage.getItem("ratFronterCount") - 1);
       if (totalFronters > 1) { 
         document.getElementById("currentfronters").innerText = "current fronters:";
       }
@@ -145,7 +145,6 @@ async function updatePK() {
       jQuery.get("https://cors-anywhere.herokuapp.com/https://api.pluralkit.me/v1/s/jjorc/fronters", function(data) {
 
         $("#ratFronterCount").text((data.members.length - 1));
-        console.log(sessionStorage.getItem("#ratFronterCount"));
         sessionStorage.setItem("ratFronterCount", (data.members.length - 1));
         totalFronters = sessionStorage.getItem("ratFronterCount");
         if (totalFronters <= 0) {
