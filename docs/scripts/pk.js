@@ -172,7 +172,7 @@ async function updatePK() {
             }
 
             if (String(data.members[i].pronouns) == String(null)) {
-              fronterPronouns = "unknown";
+              fronterPronouns = "n/a";
               fronterPronounList.push(fronterPronouns);
             } else {
               fronterPronouns = data.members[i].pronouns;
