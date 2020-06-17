@@ -412,7 +412,6 @@ function nextMember() {
       document.getElementById("next").innertext = ">";
       
       } else {
-  
       if (currentMember == 2) {
       // if 2nd fronter, change to 3rd fronter
       document.getElementById("fronter2Name").id = "fronter3Name";
@@ -471,11 +470,11 @@ function nextMember() {
   }}}}
           // if there are only 2 fronters, remove the next button
   if (parseInt(currentMember) == parseInt(totalFronters)) {
-    console.log("[LOG] Hiding next button, at currentMember value of " + currentMember + ".");
+    console.log("[LOG] Hiding next button, at currentMember value of " + currentMember + " and  totalFronters of " + totalFronters + ".");
     document.getElementById("next").innerText = "";
-    console.log("[DEBUG] Displaying member number " + currentMember + " (counting from 0).");
-  
   }
+  console.log("[DEBUG] Displaying member number " + currentMember + " (counting from 0).");
+
 });
 }
 
