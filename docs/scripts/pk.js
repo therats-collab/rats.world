@@ -110,7 +110,7 @@ async function updatePK() {
               $("#fronter0Pronouns").text(sessionStorage.getItem("fronter0Pronouns"))
               $("#fronter0Avatar").text(sessionStorage.getItem("fronter0Avatar"))
               $("#fronter0Desc").text(sessionStorage.getItem("fronter0Desc"))
-              $("#fronterID").attr("src", sessionStorage.getItem("fronter0Avatar"));
+              $("#fronter0ID").attr("src", sessionStorage.getItem("fronter0Avatar"));
           }
       })
   }
