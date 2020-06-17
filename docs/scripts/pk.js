@@ -144,12 +144,10 @@ async function updatePK() {
       // if fronters isn't in session storage, harasses the pluralkit API and gets #fronter0Name/#fronter0Pronouns/#fronter0Avatar/#fronter0Desc/#fronterID
       jQuery.get("https://cors-anywhere.herokuapp.com/https://api.pluralkit.me/v1/s/jjorc/fronters", function(data) {
 
-        $("#ratFronterCount").text(data.members.length);
+        $("#ratFronterCount").text((data.members.length - 1));
         console.log(sessionStorage.getItem("#ratFronterCount"));
-        sessionStorage.setItem("ratFronterCount", data.members.length);
+        sessionStorage.setItem("ratFronterCount", (data.members.length - 1));
         totalFronters = sessionStorage.getItem("ratFronterCount");
-        console.log("[DEBUG] " + totalFronters + " total fronters (counting from 1).");
-        totalFronters = totalFronters - 1;
         if (totalFronters <= 0) {
           totalFronters = 0;
         }
