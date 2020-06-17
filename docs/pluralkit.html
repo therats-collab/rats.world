@@ -27,23 +27,23 @@
   <main>
       
       <!-- Projectile Word Vomit Ahead! Ye Be Warn'ed -->
-        <h2>here is where all my slick js would be</h2>
-            <p>whoa so cool, none of this is currently functional at all</p>
+        <h2>what's a pluralkit?</h2>
+            <p>Pluralkit is a Discord bot we use for system management. Thanks to its (very well documented) API, we can display all sorts of handy, rapidly changing information! How neat is that? This page is dedicated to all of the neat Things™ we've made using it.</p>
             <div id="prevfronter">
               <p id="previous"></p>
             </div>
             <div id="nextfronter">
-              <p id="next">></p>
+              <p id="next"></p>
             </div>
         <h2 id="currentfronters">current fronter:</h2>
         
             <table id="pluralkit">
-              <tr>
+              <tr id="pkrow1">
                   <th>name</th>
                   <th>pronouns</th>
                   <th>avatar</th>
               </tr>
-              <tr>
+              <tr id="pkrow2">
                   <td><span id=fronter0Name>Loading...</span></td>
                   <td><span id=fronter0Pronouns>Loading...</span></td>
                   <td id="nopadding"><img id ="fronter0ID" class="center" src="images/default.png" alt="Avatar of Pluralkit member." width="10%"></td>
@@ -77,9 +77,6 @@ function scrollFunction() {
   }
 }
 totalFronters = sessionStorage.getItem("ratFronterCount")
-
-previousMember()
-nextMember()
 </script>
 </body> 
     <!-- hi there person looking at my shitty website! -->
