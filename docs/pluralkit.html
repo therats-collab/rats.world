@@ -30,10 +30,10 @@
         <h2>here is where all my slick js would be</h2>
             <p>whoa so cool, none of this is currently functional at all</p>
             <div id="prevfronter">
-              <p>< previous</p>
+              <p id="previous"></p>
             </div>
             <div id="nextfronter">
-              <p>next ></p>
+              <p id="next">next ></p>
             </div>
         <h2>current fronter:</h2>
         
@@ -63,6 +63,8 @@
     <p>♡2020 rats.world is an act of love. Please copy and share.</p>
 </footer>
 <script>
+
+// this handles the titlebar ensmalling on scroll
 window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
@@ -74,30 +76,100 @@ function scrollFunction() {
     document.getElementById("mainheader").style.fontSize = "90px";
   }
 }
-$( "#prevfronter" ).click(function() {
-  
-  document.getElementById("fronter1Name").id = "fronter0Name";
-  document.getElementById("fronter1Pronouns").id = "fronter0Pronouns";
-  document.getElementById("fronter1ID").id = "fronter0ID";
-  document.getElementById("fronter1Desc").id = "fronter0Desc";
-  $("#fronter0Name").text(sessionStorage.getItem("fronter0Name"))
-  $("#fronter0Pronouns").text(sessionStorage.getItem("fronter0Pronouns"))
-  $("#fronter0ID").text(sessionStorage.getItem("fronter0ID"))
-  $("#fronter0Desc").text(sessionStorage.getItem("fronter0Desc"))
-  $("#fronter0ID").attr("src", sessionStorage.getItem("fronter0Avatar"));
-});
 
-$("#nextfronter").click(function() {
-  document.getElementById("fronter0Name").id = "fronter1Name";
-  document.getElementById("fronter0Pronouns").id = "fronter1Pronouns";
-  document.getElementById("fronter0ID").id = "fronter1ID";
-  document.getElementById("fronter0Desc").id = "fronter1Desc";
-  $("#fronter1Name").text(sessionStorage.getItem("fronter1Name"))
-  $("#fronter1Pronouns").text(sessionStorage.getItem("fronter1Pronouns"))
-  $("#fronter1ID").text(sessionStorage.getItem("fronter1ID"))
-  $("#fronter1Desc").text(sessionStorage.getItem("fronter1Desc"))
-  $("#fronter1ID").attr("src", sessionStorage.getItem("fronter1Avatar"));
-});
+
+
+// document.getElementById("#prevfronter").style.display = "none"
+currentMember = 0
+$( "#prevfronter" ).click(function() {
+  // if 0th fronter, log to console.
+  if (currentMember == 0)  {
+    console.log("User pressed previous button, but was on 0th fronter. they weren't mean to. >_>")
+  } else {
+  // if 1st fronter, change to 0th fronter and hide
+    if (currentMember == 1) {
+      document.getElementById("fronter1Name").id = "fronter0Name";
+      document.getElementById("fronter1Pronouns").id = "fronter0Pronouns";
+      document.getElementById("fronter1ID").id = "fronter0ID";
+      document.getElementById("fronter1Desc").id = "fronter0Desc";  
+      // now everything is fronter0, but the text is unchanged!
+      $("#fronter0Name").text(sessionStorage.getItem("fronter0Name"))
+      $("#fronter0Pronouns").text(sessionStorage.getItem("fronter0Pronouns"))
+      $("#fronter0Desc").text(sessionStorage.getItem("fronter0Desc"))
+      $("#fronter0ID").attr("src", sessionStorage.getItem("fronter0Avatar"));
+      // now the text + id is fronter0, so we hide the previous button
+      document.getElementById("previous").innerText = ""
+      console.log("User pressed previous button, and went from fronter 1 > 0. #prevfronter should be hidden.")
+      currentMember = 0
+    
+    } else {
+      if (currentMember == 2) {
+        // if 2nd fronter, change to 1st fronter
+        document.getElementById("fronter2Name").id = "fronter1Name";
+        document.getElementById("fronter2Pronouns").id = "fronter1Pronouns";
+        document.getElementById("fronter2ID").id = "fronter1ID";
+        document.getElementById("fronter2Desc").id = "fronter1Desc";  
+        // now everything is fronter1, but the text is unchanged!
+        $("#fronter1Name").text(sessionStorage.getItem("fronter1Name"))
+        $("#fronter1Pronouns").text(sessionStorage.getItem("fronter1Pronouns"))
+        $("#fronter1Desc").text(sessionStorage.getItem("fronter1Desc"))
+        $("#fronter1ID").attr("src", sessionStorage.getItem("fronter1Avatar"));
+        console.log("User pressed previous button, and went from fronter 2 > 1.")
+        currentMember = 1
+    }
+  }
+}});
+
+$( "#nextfronter" ).click(function() {
+  if (currentMember == 2) {
+    // if 2nd fronter, change to 3rd fronter
+    document.getElementById("fronter2Name").id = "fronter3Name";
+    document.getElementById("fronter2Pronouns").id = "fronter3Pronouns";
+    document.getElementById("fronter2ID").id = "fronter3ID";
+    document.getElementById("fronter2Desc").id = "fronter3Desc";  
+    // now everything is fronter1, but the text is unchanged!
+    $("#fronter3Name").text(sessionStorage.getItem("fronter3Name"))
+    $("#fronter3Pronouns").text(sessionStorage.getItem("fronter3Pronouns"))
+    $("#fronter3Desc").text(sessionStorage.getItem("fronter3Desc"))
+    $("#fronter3ID").attr("src", sessionStorage.getItem("fronter3Avatar"));
+    console.log("User pressed previous button, and went from fronter 2 > 3.")
+    currentMember = 3
+    document.getElementById("next").innerText = "(not yet implemented sorry)"
+
+    } else { 
+      // if 1st fronter, change to 2nd fronter
+      if (currentMember == 1) {
+      document.getElementById("fronter1Name").id = "fronter2Name";
+      document.getElementById("fronter1Pronouns").id = "fronter2Pronouns";
+      document.getElementById("fronter1ID").id = "fronter2ID";
+      document.getElementById("fronter1Desc").id = "fronter2Desc";  
+      // now everything is fronter2, but the text is unchanged!
+      $("#fronter2Name").text(sessionStorage.getItem("fronter2Name"))
+      $("#fronter2Pronouns").text(sessionStorage.getItem("fronter2Pronouns"))
+      $("#fronter2Desc").text(sessionStorage.getItem("fronter2Desc"))
+      $("#fronter2ID").attr("src", sessionStorage.getItem("fronter2Avatar"));
+      // now the text + id is fronter2
+      console.log("User pressed previous button, and went from fronter 1 > 2.")
+      currentMember = 2
+    } else if (currentMember == 0)  {
+    document.getElementById("fronter0Name").id = "fronter1Name";
+    document.getElementById("fronter0Pronouns").id = "fronter1Pronouns";
+    document.getElementById("fronter0ID").id = "fronter1ID";
+    document.getElementById("fronter0Desc").id = "fronter1Desc";  
+      // now everything is fronter1, but the text is unchanged!
+      $("#fronter1Name").text(sessionStorage.getItem("fronter1Name"))
+      $("#fronter1Pronouns").text(sessionStorage.getItem("fronter1Pronouns"))
+      $("#fronter1Desc").text(sessionStorage.getItem("fronter1Desc"))
+      $("#fronter1ID").attr("src", sessionStorage.getItem("fronter1Avatar"));
+      // now the text + id is fronter1, so we show the previous button
+      document.getElementById("previous").innerText = "< previous"
+
+      console.log("User pressed previous button, and went from fronter 0 > 1. #prevfronter should be visible again.")
+      currentMember = 1
+  } 
+ 
+}})
+
 </script>
 </body> 
     <!-- hi there person looking at my shitty website! -->
