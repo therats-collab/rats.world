@@ -1,14 +1,15 @@
 currentMember = 0;
-
 async function updatePK() {
   console.log("[DEBUG] updatePK() has started! Hooray!")
 
 // var + const stuff
+  var converter = new showdown.Converter();
   var fronterNameList = [];
   var fronterPronounList = [];
   var fronterAvatarList = [];
-  var fronterDescList = []
-;
+  var fronterDescList = [];
+  var totalFronters = "";
+
 
   // const shortFormatter = new Intl.ListFormat('en', {
   //     style: 'narrow',
