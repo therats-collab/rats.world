@@ -84,7 +84,7 @@ async function updatePK() {
 
 // /s/jjorc/fronters stuff
   // if fronters is in session storage, assume fronter0Name/fronter0Pronouns/fronter0Avatar/fronter0Desc/fronter0Avatar are too, and get them
-  if (sessionStorage.getItem("fronters")) {
+  if (sessionStorage.getItem("fronter0Name")) {
       console.log("[DEBUG] Found fronter info in sessionStorage, not harassing the API.")
 
       $("#ratFronters").text(sessionStorage.getItem("fronters"));
