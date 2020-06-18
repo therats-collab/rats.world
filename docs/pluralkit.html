@@ -5,6 +5,8 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="styles/stylesheet.css" type="text/css">
 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.1/showdown.min.js"></script>
+<script>var converter = new showdown.Converter();</script>
 <script src="scripts/pk.js"></script>
 </head>
 
@@ -52,7 +54,7 @@
                 <th colspan="3">about</th>
               </tr>
               <tr>
-                <td colspan="3"><span id=fronter0Desc>The Pluralkit API hasn't responded yet. Either we're asleep, the API changed without us realising, or our website broke again. You tell me.</span></td>
+                <td colspan="3"><span id=fronter0Desc class="desc" markdown="1">The Pluralkit API hasn't responded yet. Either we're asleep, the API changed without us realising, or our website broke again. You tell me.</span></td>
               </tr>
             </table>
 
@@ -76,6 +78,7 @@ function scrollFunction() {
     document.getElementById("mainheader").style.fontSize = "90px";
   }
 }
+
 totalFronters = sessionStorage.getItem("ratFronterCount")
 </script>
 </body> 
