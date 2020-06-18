@@ -1,15 +1,14 @@
 currentMember = 0;
+  
 async function updatePK() {
   console.log("[DEBUG] updatePK() has started! Hooray!")
 
 // var + const stuff
-  var converter = new showdown.Converter();
   var fronterNameList = [];
   var fronterPronounList = [];
   var fronterAvatarList = [];
-  var fronterDescList = [];
-  var totalFronters = "";
-
+  var fronterDescList = []
+;
 
   // const shortFormatter = new Intl.ListFormat('en', {
   //     style: 'narrow',
@@ -84,10 +83,14 @@ async function updatePK() {
 
 // /s/jjorc/fronters stuff
   // if fronters is in session storage, assume fronter0Name/fronter0Pronouns/fronter0Avatar/fronter0Desc/fronter0Avatar are too, and get them
-  if (sessionStorage.getItem("fronter0Name")) {
+  // TODO: I'm gonna be real with you i have no idea how to fix this, but it *seems* simple? like im just not saving fronterDescList to sessionStorage the right way. idk dude.
+  if (0 == 1) {
       console.log("[DEBUG] Found fronter info in sessionStorage, not harassing the API.")
-
-      $("#ratFronters").text(sessionStorage.getItem("fronters"));
+    
+      sessionStorage.setItem("fronters", fronterNameList);
+      sessionStorage.setItem("descs", fronterDescList);
+      sessionStorage.setItem("pronouns", fronterPronounList);
+      sessionStorage.setItem("avatars", fronterAvatarList); 
       $("#fronter0Name").text(sessionStorage.getItem("fronter0Name"));
       $("#fronter1Name").text(sessionStorage.getItem("fronter1Name"));
       $("#fronter2Name").text(sessionStorage.getItem("fronter2Name"));
@@ -140,9 +143,12 @@ async function updatePK() {
       $("#fronter9ID").attr("src", sessionStorage.getItem("fronter9Avatar"));
       totalFronters = sessionStorage.getItem("ratFronterCount");
       console.log("[DEBUG] " + totalFronters + " total fronters (counting from 0).");
+      document.getElementById(String(`fronter${currentMember}Desc`)).innerHTML = converter.makeHtml(fronterDescList[currentMember])
+
 
   } else {
     console.log("[DEBUG] Couldn't find fronter info in sessionStorage, using jQuery to harass the API.")
+    console.log("[TODO]  I'm dumb and have a bug when I load from session Storage, so...I don't >_>. So...yeah. I really need to fix that.")
       // if fronters isn't in session storage, harasses the pluralkit API and gets #fronter0Name/#fronter0Pronouns/#fronter0Avatar/#fronter0Desc/#fronterID
       jQuery.get("https://cors-anywhere.herokuapp.com/https://api.pluralkit.me/v1/s/jjorc/fronters", function(data) {
 
@@ -194,7 +200,10 @@ async function updatePK() {
            }
            console.log("[DEBUG] Current fronters are: " + fronterNameList)
 
-          // sessionStorage.setItem("fronters", longFormatter.format(fronterNameList));
+          sessionStorage.setItem("fronters", fronterNameList);
+          sessionStorage.setItem("descs", fronterDescList);
+          sessionStorage.setItem("pronouns", fronterPronounList);
+          sessionStorage.setItem("avatars", fronterAvatarList);
 
           sessionStorage.setItem("fronter0Name", fronterNameList[0]);
           sessionStorage.setItem("fronter1Name", fronterNameList[1]);
@@ -239,6 +248,9 @@ async function updatePK() {
 
 
           $("#ratFronters").text(sessionStorage.getItem("fronters"));
+          $("#ratFrontersDescs").text(sessionStorage.getItem("descs"));
+          $("#ratFrontersPronouns").text(sessionStorage.getItem("pronouns"));
+          $("#ratFrontersAvatars").text(sessionStorage.getItem("avatars"));
           $("#fronter0Name").text(sessionStorage.getItem("fronter0Name"));
           $("#fronter1Name").text(sessionStorage.getItem("fronter1Name"));
           $("#fronter2Name").text(sessionStorage.getItem("fronter2Name"));
