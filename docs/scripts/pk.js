@@ -152,11 +152,11 @@ async function updatePK() {
       totalFronters = sessionStorage.getItem("ratFronterCount");
       console.log("[DEBUG] " + totalFronters + " total fronters (counting from 0).");
 
-      if (totalFronters = 1) {
+      if (totalFronters = 0) {
         document.getElementById("previous").style.display = 'none';
         document.getElementById("next").style.display = 'none';
       }
-      if (totalFronters <= 0) {
+      if (totalFronters < 0) {
         totalFronters = 0;
         document.getElementById("currentfronters").style.display = 'none';
         document.getElementById("pkrow1").style.display = 'none';
@@ -351,6 +351,7 @@ function nextMember() {
     $( "#nextfronter" ).click(function() {
     $("#prevfronter").css('pointer-events', 'auto');
     $("#prevfronter").css('color', 'white');
+
     if (totalFronters > 1) { 
       document.getElementById("currentfronters").innerText = "current fronters:";
     }  
@@ -458,8 +459,7 @@ function nextMember() {
       $("#fronter3Desc").text(sessionStorage.getItem("fronter3Desc"));
       $("#fronter3ID").attr("src", sessionStorage.getItem("fronter3Avatar"));
       currentMember = 3;
-
-      
+        }
       }
       // if 1st fronter, change to 2nd fronter
     if (currentMember == 1) {
@@ -474,9 +474,9 @@ function nextMember() {
       $("#fronter2ID").attr("src", sessionStorage.getItem("fronter2Avatar"));
       // now the text + id is fronter2
       currentMember = 2;
-
+    }
       
-      }
+      
       // if 0th fronter, change to 1st fronter
       if (currentMember == 0)  {
         document.getElementById("fronter0Name").id = "fronter1Name";
@@ -492,8 +492,15 @@ function nextMember() {
         currentMember = 1;
         } 
       } 
-    }
-  }}}}
+    
+  }
+  if ((currentMember - 1) == totalFronters) {
+    $("#nextfronter").css('pointer-events', 'none');
+    $("#nextfronter").css('color', 'transparent');
+  }
+}
+}
+}
 
   console.log("[DEBUG] User moved from fronter " + (currentMember - 1) + " to " + currentMember + ".");
   if (currentMember == 1) { 
@@ -661,10 +668,8 @@ function previousMember() {
   console.log("[DEBUG] User moved from fronter " + (currentMember + 1) + " to " + currentMember  + ", named " + fronterNameList[currentMember] + ".");
   if (currentMember == 0) { 
     console.log("        The previous fronter button should now be hidden.")
-  }
-
-  }
-);
+  };
+  })
 }
 if (totalFronters > 1) { 
   document.getElementById("currentfronters").innerText = "current fronters: " + (currentMember + 1) + "/" + (parseInt(totalFronters) + 1);
