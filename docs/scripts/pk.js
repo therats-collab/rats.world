@@ -157,15 +157,7 @@ async function updatePK() {
         document.getElementById("previous").style.display = 'none';
         document.getElementById("next").style.display = 'none';
       }
-      if (totalFronters < 0) {
-        totalFronters = 0;
-        document.getElementById("currentfronters").style.display = 'none';
-        document.getElementById("pkrow1").style.display = 'none';
-        document.getElementById("pkrow2").style.display = 'none';
-        document.getElementById("previous").style.display = 'none';
-        document.getElementById("next").style.display = 'none';
-        document.getElementById("fronter0Desc").innerText = "We're asleep right now, so obviously no one's driving the rat mech. So... yeah. Zzz, and whatnot.";
-      }
+
       document.getElementById(String(`fronter${currentMember}Desc`)).innerHTML = converter.makeHtml(fronterDescList[currentMember])
 
   } else {
