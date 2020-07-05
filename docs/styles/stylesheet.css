@@ -6,10 +6,6 @@ body {
 	background-color: black;
 	font-family: "IBM Plex Serif", "Liberation Serif", "FreeSerif", serif;
 	color: #ccc;
-	-webkit-user-select: none;  /* Chrome all / Safari all */
-	-moz-user-select: none;     /* Firefox all */
-	-ms-user-select: none;      /* IE 10+ */
-	user-select: none;          /* Likely future */    
 }
 #lost {
 	background-color: #E87D22;
@@ -193,6 +189,11 @@ th {
 	font-family: "Aileron Heavy", "Liberation Sans", "FreeSans", sans;
 	color:transparent;
 	pointer-events: none;
+	
+	-webkit-user-select: none;  /* Chrome all / Safari all */
+	-moz-user-select: none;     /* Firefox all */
+	-ms-user-select: none;      /* IE 10+ */
+	user-select: none;          /* Likely future */    
 }
 
 #prevfronter p:hover {
@@ -204,6 +205,11 @@ th {
 	float: right;
 	font-family: "Aileron Heavy", "Liberation Sans", "FreeSans", sans;
 	pointer-events: auto;
+	
+	-webkit-user-select: none;  /* Chrome all / Safari all */
+	-moz-user-select: none;     /* Firefox all */
+	-ms-user-select: none;      /* IE 10+ */
+	user-select: none;          /* Likely future */    
 }
 
 #nextfronter p:hover {
@@ -406,13 +412,13 @@ footer img {
 
 
 ::selection {
-    color: none;
-    background: none;
+    color: #EB8E3D; /* Slightly more contrast-y than the Rats Orange and Rats Darker Orange */
+    background: #280C06;
 }
 
 ::-moz-selection {
-    color: none;
-    background: none;
+    color: #EB8E3D;
+    background: #280C06;
 }
 
 /* Web font buggery ahead.
