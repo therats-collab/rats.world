@@ -32,7 +32,7 @@ async function updatePK() {
       jQuery.get("https://api.pluralkit.me/v1/s/jjorc/members", function(data) {
           // #ratCount stuff
           $("#ratCount").text(data.length);
-          sessionStorage.setItem("count", sessionStorage.getItem("#ratCount"));
+          sessionStorage.setItem("count", data.length);
           // #daysSince stuff
           // let newest = data.sort((a, b) => {
           //     a = new Date(a.created);
@@ -330,7 +330,7 @@ async function updatePK() {
           $("#fronter8ID").attr("src", sessionStorage.getItem("fronter8Avatar"));
           $("#fronter9ID").attr("src", sessionStorage.getItem("fronter9Avatar"));
           $("#ratFronterCount").text(sessionStorage.getItem("ratFronterCount"));
-          if (totalFronters = 1) {
+          if (totalFronters == 0) {
             document.getElementById("previous").style.display = 'none';
             document.getElementById("next").style.display = 'none';
           }
