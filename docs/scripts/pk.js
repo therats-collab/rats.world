@@ -152,7 +152,8 @@ async function updatePK() {
       totalFronters = sessionStorage.getItem("ratFronterCount");
       console.log("[DEBUG] " + totalFronters + " total fronters (counting from 0).");
 
-      if (totalFronters = 0) {
+      if (totalFronters == 0) {
+        console.log("[DEBUG] totalFronters == 0, so hiding previous and next buttons.")
         document.getElementById("previous").style.display = 'none';
         document.getElementById("next").style.display = 'none';
       }
