@@ -6,6 +6,10 @@ body {
 	background-color: black;
 	font-family: "IBM Plex Serif", "Liberation Serif", "FreeSerif", serif;
 	color: #ccc;
+	-webkit-user-select: none;  /* Chrome all / Safari all */
+	-moz-user-select: none;     /* Firefox all */
+	-ms-user-select: none;      /* IE 10+ */
+	user-select: none;          /* Likely future */    
 }
 #lost {
 	background-color: #E87D22;
