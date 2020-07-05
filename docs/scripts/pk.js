@@ -167,9 +167,6 @@ async function updatePK() {
         document.getElementById("fronter0Desc").innerText = "We're asleep right now, so obviously no one's driving the rat mech. So... yeah. Zzz, and whatnot.";
       }
       document.getElementById(String(`fronter${currentMember}Desc`)).innerHTML = converter.makeHtml(fronterDescList[currentMember])
-      console.log(document.getElementById(String(`fronter${currentMember}Desc`)))
-      console.log(fronterDescList[currentMember])
-
 
   } else {
     console.log("[DEBUG] Couldn't find fronter info in sessionStorage, using jQuery to harass the API.")
