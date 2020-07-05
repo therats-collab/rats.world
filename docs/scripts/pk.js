@@ -151,7 +151,23 @@ async function updatePK() {
       
       totalFronters = sessionStorage.getItem("ratFronterCount");
       console.log("[DEBUG] " + totalFronters + " total fronters (counting from 0).");
+
+      if (totalFronters = 1) {
+        document.getElementById("previous").style.display = 'none';
+        document.getElementById("next").style.display = 'none';
+      }
+      if (totalFronters <= 0) {
+        totalFronters = 0;
+        document.getElementById("currentfronters").style.display = 'none';
+        document.getElementById("pkrow1").style.display = 'none';
+        document.getElementById("pkrow2").style.display = 'none';
+        document.getElementById("previous").style.display = 'none';
+        document.getElementById("next").style.display = 'none';
+        document.getElementById("fronter0Desc").innerText = "We're asleep right now, so obviously no one's driving the rat mech. So... yeah. Zzz, and whatnot.";
+      }
       document.getElementById(String(`fronter${currentMember}Desc`)).innerHTML = converter.makeHtml(fronterDescList[currentMember])
+      console.log(document.getElementById(String(`fronter${currentMember}Desc`)))
+      console.log(fronterDescList[currentMember])
 
 
   } else {
@@ -160,6 +176,10 @@ async function updatePK() {
       jQuery.get("https://cors-anywhere.herokuapp.com/https://api.pluralkit.me/v1/s/jjorc/fronters", function(data) {
 
         $("#ratFronterCount").text(data.members.length);
+        if (data.members.length == 0) {
+          document.getElementById("previous").style.display = 'none';
+          document.getElementById("next").style.display = 'none';
+        }
         sessionStorage.setItem("ratFronterCount", (data.members.length - 1));
         totalFronters = sessionStorage.getItem("ratFronterCount");
         console.log("[DEBUG] " + totalFronters + " total fronters (counting from 0). The website counts from 1, because that's what normal humans use.");
@@ -309,7 +329,10 @@ async function updatePK() {
           $("#fronter8ID").attr("src", sessionStorage.getItem("fronter8Avatar"));
           $("#fronter9ID").attr("src", sessionStorage.getItem("fronter9Avatar"));
           $("#ratFronterCount").text(sessionStorage.getItem("ratFronterCount"));
-
+          if (totalFronters = 1) {
+            document.getElementById("previous").style.display = 'none';
+            document.getElementById("next").style.display = 'none';
+          }
           if (totalFronters <= 0) {
             totalFronters = 0;
             document.getElementById("currentfronters").style.display = 'none';
@@ -318,10 +341,6 @@ async function updatePK() {
             document.getElementById("previous").style.display = 'none';
             document.getElementById("next").style.display = 'none';
             document.getElementById("fronter0Desc").innerText = "We're asleep right now, so obviously no one's driving the rat mech. So... yeah. Zzz, and whatnot.";
-          }
-          if (totalFronters == 1) {
-            document.getElementById("previous").style.display = 'none';
-            document.getElementById("next").style.display = 'none';
           }
           document.getElementById(String(`fronter${currentMember}Desc`)).innerHTML = converter.makeHtml(fronterDescList[currentMember])
           console.log(document.getElementById(String(`fronter${currentMember}Desc`)))
