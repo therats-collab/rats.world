@@ -1,15 +1,6 @@
 async function updateSysList() {
     // var + const stuff
     currentMember = 0;
-    var ratNameList = [];
-    var ratPronounList = [];
-    var ratIDList = [];
-    var ratColorList = [];
-    var ratAvatarList = [];
-    var ratDescList = [];
-    var ratBirthdayList = [];
-    var ratCreationList = [];
-    var totalRats = -1;
 
     var defaultName = "Unknown"
     var defaultColor = "#666666";
@@ -41,72 +32,97 @@ async function updateSysList() {
         //     $("#ratCount").text(totalRats);
         //     sessionStorage.setItem("ratCount", totalRats);
 
-            // [dq] debug 2tuff
-            console.log("[DEBUG] " + totalRats + " total Rats (counting from 0). The website counts from 1, because that's what normal humans use.");
-            console.log("[DEBUG] Assume all console messages are counting from 0, unless otherwise stated.");
-        //// data.members stuff ////
-            for (var i in data.members) {
-                // all ID's are valid/public, so push
-                ratIDList.push(data.members[i].id);
-                // all members were created (lmao) so push
-                ratCreationList.push(data.members[i].created);
-            
-                // push default name if both are unset/private, else push display name, else push name
-                if (String(data.members[i].name) == "null" && String(data.members[i].display_name) == "null") {
-                    ratColorList.push(defaultName);
+            // // [dq] debug 2tuff
+            // console.log("[DEBUG] " + totalRats + " total Rats (counting from 0). The website counts from 1, because that's what normal humans use.");
+            // console.log("[DEBUG] Assume all console messages are counting from 0, unless otherwise stated.");
+        //// data stuff ////
+            var rats = data;
+            for (var i in data) {
+                member = data[i];
+                rats[i] = member
+
+                // use default name if both are unset/private, else use display name, else use name
+                if (String(rats[i].name) == "null" && String(rats[i].display_name) == "null") {
+                    rats[i].name = defaultName;
                 } else {
                     // Get display name if set, else get name.
-                    ratName = data.members[i].display_name || data.members[i].name;
-                    // Capitalises the first letter of each word, and pushes the result to list.
+                    // [dq] for the purpo2e2 of dii2playiing a name on our web2iite, we're only u2iing name
+                    rats[i].name = rats[i].display_name || rats[i].name;
+                    // Capitalises the first letter of each word, and usees the result to list.
                     // The split magic breaks on names with length 1, so we need to account for that.
-                    if (ratName.length == 1) { 
-                        ratNameList.push(ratName.toUpperCase)
+                    if (rats[i].name.length == 1) { 
+                        rats[i].name = rats[i].name.toUpperCase()
                     } else {
-                        ratNameList.push(ratName.split(' ').map(i => i[0].toUpperCase() + i.substring(1)).join(' '));
+                        rats[i].name = (rats[i].name.split(" ").map(i => i[0].toUpperCase() + i.substring(1)).join(" "));
                     }
                 }
-            
-                // push default color if unset/private, else push member color
-                if (String(data.members[i].color) == "null") {
-                    ratColorList.push(defaultColor);
-                } else {
-                    ratColorList.push(data.members[i].color);
+                
+                // use default color if unset/private
+                if (String(data[i].color) == "null") {
+                    rats[i].color = defaultColor;
                 }
             
-                // push default birthday if unset/private, else push member birthday
-                if (String(data.members[i].birthday) == "null") {
-                    ratBirthdayList.push(defaultBirthday);
-                } else {
-                    ratBirthdayList.push(data.members[i].birthday);
+                // use default birthday if unset/private
+                if (String(data[i].birthday) == "null") {
+                    rats[i].birthday = defaultBirthday;
                 }
             
-                // push default pronouns if unset/private, else push member pronouns
-                if (String(data.members[i].pronouns) == "null") {
-                    ratPronounList.push(defaultPronouns);
-                } else {
-                    ratPronounList.push(data.members[i].pronouns);
+                // use default pronouns if unset/private
+                if (String(data[i].pronouns) == "null") {
+                    rats[i].pronouns = defaultPronouns;
                 }
             
-                // push default avatar if unset/private, else push member avatar
-                if (String(data.members[i].avatar_url) == "null") {
-                    ratAvatarList.push(defaultAvatar);
-                } else {
-                    ratAvatarList.push(data.members[i].avatar_url);
-                }
+                // use default avatar if unset/private
+                if (String(data[i].avatar_url) == "null") {
+                    rats[i].avatar_url = defaultAvatar;
+                } 
             
-                // push defauly desc if unset/private, else push member desc
-                if (String(data.members[i].description) == "null") {
-                    ratDescList.push(defaultDesc);
-                } else {
-                    ratDescList.push(data.members[i].description);
+                // use defauly desc if unset/private
+                if (String(data[i].description) == "null") {
+                   rats[i].description = defaultDesc;
                 }
+
+                // basic functions: make a table
+                var table = document.createElement("table");
+                var row1 = document.createElement("tr"); // avatar / name / pronouns
+                var row2 = document.createElement("tr"); // desc / -- / --
+
+                var avatarCell = document.createElement("td"); 
+                var nameCell = document.createElement("td");
+                var pronounsCell = document.createElement("td");
+                var descCell = document.createElement("td");
+                
+                var avatar = document.createElement("img")
+                avatar.src = rats[i].avatar_url
+
+                var name = document.createTextNode("Name: " + rats[i].name);
+                var pronouns = document.createTextNode("Pronouns: " + rats[i].pronouns);
+                var desc = document.createTextNode("About: " + rats[i].description);
+                descCell.colSpan = 3
+
+                table.appendChild(row1)
+                // add each cell to table
+                row1.appendChild(avatarCell);
+                row1.appendChild(nameCell);
+                row1.appendChild(pronounsCell);
+                // add dontents to each cell
+                avatarCell.appendChild(avatar);
+                nameCell.appendChild(name);
+                pronounsCell.appendChild(pronouns);
+
+                table.appendChild(row2);
+                row2.appendChild(descCell)
+                descCell.appendChild(desc)
+                table = converter.makeHtml(table)
+                document.getElementById('fullList').appendChild(table);
+
                 console.log("[-- MEMBER " + i + "--]")
-                console.log("id:" + ratIDList[i])
-                console.log("name:" + ratNameList[i])
-                console.log("birthday:" + ratBirthdayList[i])
-                console.log("pronouns:" + ratPronounList[i])
-                console.log("avatar url:" + ratAvatarList[i])
-                console.log("desc:" + ratDescList[i])
+                console.log("id:" + rats[i].id)
+                console.log("name:" + rats[i].name)
+                console.log("birthday:" + rats[i].birthday)
+                console.log("pronouns:" + rats[i].pronouns)
+                console.log("avatar url:" + rats[i].avatar_url)
+                console.log("desc:" + rats[i].description)
             }
         });
     }

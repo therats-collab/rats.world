@@ -225,12 +225,12 @@ th {
 	font-weight: bold;
 
 }
-#pluralkit th {
+th {
 	padding: 6px;
 	border-bottom: 6px solid #F70;
 	text-align: left;
 }
-#pluralkit td {
+td {
 	text-align: left;
 	width: 33%;
 }
