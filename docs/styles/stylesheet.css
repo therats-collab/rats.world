@@ -168,7 +168,9 @@ table {
 	width: 100%;
 	font-size: 14pt;
     text-align: center;
-    border-collapse: collapse;
+	border-collapse: collapse;
+	display: inline-table;
+	align-self: center;
 
 }
 
@@ -179,13 +181,17 @@ td {
 }
 #nopadding {
 	padding: 0 !important;
+	width: fit-content ;
+	
 }
+
 th {
 	font-family: "Aileron Heavy", "Liberation Sans", "FreeSans", sans;
 
-    padding: 12px;
-    text-align: center;
-    background-color: #1b1b1b;
+    padding: 2px;
+	text-align: center;
+	vertical-align: top;
+	background-color: #1b1b1b;
     border-top: 2px solid #1b1b1b;
     border-bottom: 12px solid #F70;
     border-left: 2px solid #1b1b1b;
@@ -225,15 +231,12 @@ th {
 	font-weight: bold;
 
 }
-th {
-	padding: 6px;
-	border-bottom: 6px solid #F70;
-	text-align: left;
-}
 td {
 	text-align: left;
 	width: 33%;
 }
+
+
 tr:nth-child(even){background-color: #0c0c0c;}
 tr:nth-child(odd){background-color: #080808;}
 
@@ -341,6 +344,17 @@ summary {
 
 #floatright {
 	float:right;
+}
+#fullList {
+	margin: auto;
+	align-items: center;
+	width: 90%;
+}
+.sysList {
+	width: 31%;
+	min-width: 200px;	
+	padding: 1%;
+	margin: 10px 10px 10px 10px
 }
 #pluralkit {
 	width: 50%;	

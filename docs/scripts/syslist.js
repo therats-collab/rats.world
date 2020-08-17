@@ -84,22 +84,27 @@ async function updateSysList() {
 
                 // basic functions: make a table
                 var table = document.createElement("table");
-                var row1 = document.createElement("tr"); // avatar / name / pronouns
+                table.id = rats[i].id
+                table.className = "sysList"
+                table.setAttribute("display", "inline-table")
+                var row1 = document.createElement("th"); // avatar / name / pronouns
                 var row2 = document.createElement("tr"); // desc / -- / --
 
                 var avatarCell = document.createElement("td"); 
                 var nameCell = document.createElement("td");
                 var pronounsCell = document.createElement("td");
                 var descCell = document.createElement("td");
-                
+            
                 var avatar = document.createElement("img")
+                avatarCell.id = "nopadding"
                 avatar.src = rats[i].avatar_url
 
-                var name = document.createTextNode("Name: " + rats[i].name);
-                var pronouns = document.createTextNode("Pronouns: " + rats[i].pronouns);
-                var desc = document.createTextNode("About: " + rats[i].description);
+                var name = document.createTextNode(rats[i].name);
+                var pronouns = document.createTextNode(rats[i].pronouns);
+                var desc = document.createTextNode("");
                 descCell.colSpan = 3
-
+                descCell.id = (`${rats[i].description}_desc`)
+                descCell.setAttribute("markdown", "1")
                 table.appendChild(row1)
                 // add each cell to table
                 row1.appendChild(avatarCell);
@@ -113,9 +118,9 @@ async function updateSysList() {
                 table.appendChild(row2);
                 row2.appendChild(descCell)
                 descCell.appendChild(desc)
-                table = converter.makeHtml(table)
                 document.getElementById('fullList').appendChild(table);
-
+                console.log(rats[i].id)
+                document.getElementById(`${rats[i].description}_desc`).innerHTML = (converter.makeHtml("**Description** " + rats[i].description))
                 console.log("[-- MEMBER " + i + "--]")
                 console.log("id:" + rats[i].id)
                 console.log("name:" + rats[i].name)
