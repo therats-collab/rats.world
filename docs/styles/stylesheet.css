@@ -29,6 +29,9 @@ body {
 .noah {
 	color: #eb9952;
 }
+.ppm {
+	color:#AA0037;
+}
 .kidtz {
 	color: #43e8e8;
 }
@@ -41,7 +44,7 @@ body {
 .cecil {
 	color: #68558c;
 }
-.unknown {
+.vasariah {
 	color: #aaaaaa;
 }
 header {
@@ -140,6 +143,10 @@ p {
 	hyphens: auto;
 	line-height: 1.5;
 	text-indent: 32pt;
+}
+
+body li {
+	font-size: 16pt;
 }
 
 p a:hover {

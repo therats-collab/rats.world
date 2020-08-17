@@ -73,9 +73,9 @@ async function updateMembers() {
     $("#fronter8ID").attr("src", sessionStorage.getItem("fronter8Avatar"));
     $("#fronter9ID").attr("src", sessionStorage.getItem("fronter9Avatar"));
 
-    fronterNameList = ((sessionStorage.getItem("fronters")).split(","));
+    // sessionStorage only works with strings. but if we JSONify those strings into session storage, and parse them out of it, we can preserve the list-ness we wanted originally
+    fronterNameList = JSON.parse(sessionStorage.getItem("fronters"));
     fronterDescList = JSON.parse(sessionStorage.getItem("descs"));
-
     console.log("[DEBUG] Got fronterNameList from \"fronters\" in session storage. It looks like this: ")
     console.log(fronterNameList)
     
@@ -87,8 +87,10 @@ async function updateMembers() {
       document.getElementById("previous").style.display = 'none';
       document.getElementById("next").style.display = 'none';
     }
-
+    // [dequirk] ii thiink ii have to loop thii2 for all member2 iin front but fuck iim lazy
     document.getElementById(String(`fronter${currentMember}Desc`)).innerHTML = converter.makeHtml(fronterDescList[currentMember])
+    document.getElementById(String(`fronter${currentMember}ID`)).attr = sessionStorage.getItem(String(`fronter${currentMember}Avatar`))
+    console.log("diid that fuckiing thiing")
 
 } else {
   console.log("[DEBUG] Couldn't find fronter info in sessionStorage, using jQuery to harass the API.")
@@ -122,7 +124,7 @@ async function updateMembers() {
           // If no avatar is set, or it's undefined (either (no fronter) or private), use a generic rat image
           // TODO: use the one hosted on our website
           if ((String(data.members[i].avatar_url) == String(null)) || (String(data.members[i].avatar_url) == "undefined")) {
-            fronterAvatar = "https://cdn.discordapp.com/avatars/169641538337505280/f117e34aaeac6a0c5fe5e718d1bb0929.png";
+            fronterAvatar = "https://rats.world/images/default.png";
             fronterAvatarList.push(fronterAvatar);
           } else {
             fronterAvatar = data.members[i].avatar_url;
@@ -156,10 +158,10 @@ async function updateMembers() {
 
         console.log("[DEBUG] Current fronters are: " + fronterNameList)
 
-        sessionStorage.setItem("fronters", fronterNameList);
+        sessionStorage.setItem("fronters", JSON.stringify(fronterNameList));
         sessionStorage.setItem("descs", JSON.stringify(fronterDescList));
-        sessionStorage.setItem("pronouns", fronterPronounList);
-        sessionStorage.setItem("avatars", fronterAvatarList);
+        sessionStorage.setItem("pronouns", JSON.stringify(fronterPronounList));
+        sessionStorage.setItem("avatars", JSON.stringify(fronterAvatarList));
 
         sessionStorage.setItem("fronter0Name", fronterNameList[0]);
         sessionStorage.setItem("fronter1Name", fronterNameList[1]);
