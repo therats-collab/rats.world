@@ -59,7 +59,7 @@ async function updateSysList() {
                     fronterName = data.members[i].display_name || data.members[i].name;
                     // Capitalises the first letter of each word, and pushes the result to list.
                     // The split magic breaks on names with length 1, so we need to account for that.
-                    if (fronterName.length() = 1) { 
+                    if (fronterName.length = 1) { 
                         fronterNameList.push(fronterName.toUpperCase)
                     } else {
                         fronterNameList.push(fronterName.split(' ').map(i => i[0].toUpperCase() + i.substring(1)).join(' '));
