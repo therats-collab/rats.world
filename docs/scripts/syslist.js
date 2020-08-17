@@ -122,11 +122,11 @@ async function updateSysList() {
                 console.log(rats[i].id)
                 document.getElementById(`${rats[i].description}_desc`).innerHTML = (converter.makeHtml("**Description** " + rats[i].description))
                 console.log("[-- MEMBER " + i + "--]")
-                console.log("id:" + rats[i].id)
+                // console.log("id:" + rats[i].id)
                 console.log("name:" + rats[i].name)
-                console.log("birthday:" + rats[i].birthday)
-                console.log("pronouns:" + rats[i].pronouns)
-                console.log("avatar url:" + rats[i].avatar_url)
+                // console.log("birthday:" + rats[i].birthday)
+               //  console.log("pronouns:" + rats[i].pronouns)
+               // console.log("avatar url:" + rats[i].avatar_url)
                 console.log("desc:" + rats[i].description)
             }
         });
