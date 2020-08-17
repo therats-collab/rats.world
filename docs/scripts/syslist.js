@@ -29,17 +29,17 @@ async function updateSysList() {
         // if fronters isn't in session storage, harasses the pluralkit API and gets #fronter0Name/#fronter0Pronouns/#fronter0Avatar/#fronter0Desc/#fronterID
         jQuery.get("https://cors-anywhere.herokuapp.com/https://api.pluralkit.me/v1/s/jjorc/members", function(data) {
         
-        //// data.members.length stuff ////
-            // [dq] iif no one iin front, dii2able prev and next nav
-            if (data.members.length == 0) {
-                document.getElementById("previous").style.display = 'none';
-                document.getElementById("next").style.display = 'none';
-              }
+        // //// data.members.length stuff ////
+        //     // [dq] iif no one iin front, dii2able prev and next nav
+        //     if (data.members.length == 0) {
+        //         document.getElementById("previous").style.display = 'none';
+        //         document.getElementById("next").style.display = 'none';
+        //       }
 
-            // [dq] count from 1 liike a normal human and 2ave to 2e22iionStorage
-            totalRats = (data.members.length - 1);
-            $("#ratCount").text(totalRats);
-            sessionStorage.setItem("ratCount", totalRats);
+        //     // [dq] count from 1 liike a normal human and 2ave to 2e22iionStorage
+        //     totalRats = (data.members.length - 1);
+        //     $("#ratCount").text(totalRats);
+        //     sessionStorage.setItem("ratCount", totalRats);
 
             // [dq] debug 2tuff
             console.log("[DEBUG] " + totalRats + " total Rats (counting from 0). The website counts from 1, because that's what normal humans use.");
