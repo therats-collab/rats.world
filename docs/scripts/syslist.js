@@ -103,7 +103,7 @@ async function updateSysList() {
                 var pronouns = document.createTextNode(rats[i].pronouns);
                 var desc = document.createTextNode("");
                 descCell.colSpan = 3
-                descCell.id = (`${rats[i].description}_desc`)
+                descCell.id = (`${rats[i].id}_desc`)
                 descCell.setAttribute("markdown", "1")
                 table.appendChild(row1)
                 // add each cell to table
@@ -120,7 +120,7 @@ async function updateSysList() {
                 descCell.appendChild(desc)
                 document.getElementById('fullList').appendChild(table);
                 console.log(rats[i].id)
-                document.getElementById(`${rats[i].description}_desc`).innerHTML = (converter.makeHtml("**Description** " + rats[i].description))
+                document.getElementById(`${rats[i].id}_desc`).innerHTML = (converter.makeHtml("**Description** " + rats[i].description))
                 console.log("[-- MEMBER " + i + "--]")
                 // console.log("id:" + rats[i].id)
                 console.log("name:" + rats[i].name)
