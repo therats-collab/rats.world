@@ -14,6 +14,8 @@ async function updateSysList() {
   // if fronters is in session storage, assume each fronters name, pronouns, desc, and avatar is too, and get them all
     if (sessionStorage.getItem("fronters")) {
         console.log("[DEBUG] Found fronter info in sessionStorage, not harassing the API.");
+        rats = sessionStorage.getItem("ratData")
+        
 
     } else {
         console.log("[DEBUG] Couldn't find fronter info in sessionStorage, using jQuery to harass the API.");
@@ -37,6 +39,7 @@ async function updateSysList() {
             // console.log("[DEBUG] Assume all console messages are counting from 0, unless otherwise stated.");
         //// data stuff ////
             var rats = data;
+            sessionStorage.setItem("ratData", JSON.stringify(rats))
             for (var i in data) {
                 member = data[i];
                 rats[i] = member
@@ -81,7 +84,7 @@ async function updateSysList() {
                 if (String(data[i].description) == "null") {
                    rats[i].description = defaultDesc;
                 }
-
+                
                 // basic functions: make a table
                 var table = document.createElement("table");
                 table.id = rats[i].id
