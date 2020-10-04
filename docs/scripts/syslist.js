@@ -90,46 +90,82 @@ async function updateSysList() {
                 table.id = rats[i].id
                 table.className = "sysList"
                 table.setAttribute("display", "inline-table")
+                table.setAttribute("align", "center")
+                
                 var row1 = document.createElement("th"); // avatar / name / pronouns
-                var row2 = document.createElement("tr"); // desc / -- / --
+                var row2 = document.createElement("tr"); // those
+                var row3 = document.createElement("th"); // desc
+                var row4 = document.createElement("tr"); // those
 
-                var avatarCell = document.createElement("td"); 
+
+                var nameTitleCell = document.createElement("td");
+                var nameTitle = document.createTextNode("name");
+                nameTitleCell.className = "memberName";
+                var pronounsTitleCell = document.createElement("td");
+                var pronounsTitle = document.createTextNode("pronouns");
+                pronounsTitleCell.className = "memberPronouns";
+                var avatarTitleCell = document.createElement("td");
+                var avatarTitle = document.createTextNode("avatar");
+                avatarTitleCell.className = "memberAvatar";
+
                 var nameCell = document.createElement("td");
                 var pronounsCell = document.createElement("td");
+                var avatarCell = document.createElement("td"); 
+
+                
+                var descTitleCell = document.createElement("td");
+                var descTitle = document.createTextNode("desc");
+                var desc = document.createTextNode("");
+                
                 var descCell = document.createElement("td");
-            
-                var avatar = document.createElement("img")
-                avatarCell.id = "nopadding"
-                avatar.src = rats[i].avatar_url
 
                 var name = document.createTextNode(rats[i].name);
                 var pronouns = document.createTextNode(rats[i].pronouns);
-                var desc = document.createTextNode("");
-                descCell.colSpan = 3
+                var avatar = document.createElement("img")
+                avatar.src = rats[i].avatar_url
+                avatar.setAttribute("height", "auto")
+                avatarCell.id = (`${rats[i].id}_avatar`)
                 descCell.id = (`${rats[i].id}_desc`)
+                nameTitleCell.colSpan = 2
+                nameCell.colSpan = 2
+                descCell.colSpan = 2
+                descTitleCell.colSpan = 2
                 descCell.setAttribute("markdown", "1")
+                descCell.setAttribute("width", "100%")
+
                 table.appendChild(row1)
-                // add each cell to table
-                row1.appendChild(avatarCell);
-                row1.appendChild(nameCell);
-                row1.appendChild(pronounsCell);
-                // add dontents to each cell
-                avatarCell.appendChild(avatar);
+                row1.appendChild(nameTitleCell);
+                row1.appendChild(pronounsTitleCell);
+                nameTitleCell.appendChild(nameTitle);
+                pronounsTitleCell.appendChild(pronounsTitle);
+
+                table.appendChild(row2);
+                row2.appendChild(nameCell);
+                row2.appendChild(pronounsCell);
                 nameCell.appendChild(name);
                 pronounsCell.appendChild(pronouns);
 
-                table.appendChild(row2);
-                row2.appendChild(descCell)
-                descCell.appendChild(desc)
+                table.appendChild(row3);
+                row3.appendChild(avatarTitleCell);
+                row3.appendChild(descTitleCell);
+
+                avatarTitleCell.appendChild(avatarTitle);
+                descTitleCell.appendChild(descTitle);
+
+                table.appendChild(row4);
+                row4.appendChild(avatarCell);
+                row4.appendChild(descCell);
+                avatarCell.appendChild(avatar);
+                descCell.appendChild(desc);
+
+
+        
+
                 document.getElementById('fullList').appendChild(table);
                 console.log(rats[i].id)
-                document.getElementById(`${rats[i].id}_desc`).innerHTML = (converter.makeHtml("**Description** " + rats[i].description))
+                document.getElementById(`${rats[i].id}_desc`).innerHTML = (converter.makeHtml(rats[i].description))
                 console.log("[-- MEMBER " + i + "--]")
-                // console.log("id:" + rats[i].id)
                 console.log("name:" + rats[i].name)
-                // console.log("birthday:" + rats[i].birthday)
-               //  console.log("pronouns:" + rats[i].pronouns)
-               // console.log("avatar url:" + rats[i].avatar_url)
                 console.log("desc:" + rats[i].description)
             }
         });

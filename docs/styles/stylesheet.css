@@ -47,6 +47,10 @@ body {
 .vasariah {
 	color: #aaaaaa;
 }
+.nox {
+	color: #7f7f7f;
+}
+
 header {
 	font-size: 108pt;
 	font-weight: bold;
@@ -165,7 +169,7 @@ a:hover {
 	color: #dba36a;
 }
 
-table {
+/* table {
 	width: 100%;
 	font-size: 14pt;
     text-align: center;
@@ -173,13 +177,13 @@ table {
 	display: inline-table;
 	align-self: center;
 
-}
+} */
 
 
-td {
+/* td {
     text-align: center;
 	width: 15px;
-}
+} */
 
 
 #nopadding {
@@ -189,9 +193,6 @@ td {
 
 th {
 	font-family: "Aileron Heavy", "Liberation Sans", "FreeSans", sans;
-
-	padding: 2px;
-	padding-bottom: 4px;
 	text-align: center;
 	vertical-align: middle;
 	background-color: #1b1b1b;
@@ -200,7 +201,7 @@ th {
     border-left: 2px solid #1b1b1b;
     border-right: 2px solid #1b1b1b;
     color: white;
-}
+} 
 #prevfronter { 
 	float: left;
 	font-family: "Aileron Heavy", "Liberation Sans", "FreeSans", sans;
@@ -234,10 +235,10 @@ th {
 	font-weight: bold;
 
 }
-td {
+/* td {
 	text-align: left;
 	width: 33%;
-}
+} */
 
 
 tr:nth-child(even){background-color: #0c0c0c;}
@@ -340,24 +341,31 @@ summary {
 #synopsis p {
 	line-height: 1.25;
 }
-
+.memberName {
+	padding-left : 20%;
+}
+.memberPronouns {
+	padding-left: 20%;
+}
+.memberAvatar {
+	padding-left: 50%;
+}
 #floatleft {
 	float: left;
 }
 
 #floatright {
-	float:right;
+	float: right;
 }
-#fullList {
-	margin: auto;
-	align-items: center;
-	width: 90%;
+#fullList table {
+	width: 80%;
+} 
+
+tr img {
+	width: 20%;
 }
-.sysList {
-	width: 31%;
-	min-width: 200px;	
-	padding: 1%;
-	margin: 10px 10px 10px 10px
+.sysList td:nth-child(1) {
+	width: 80%;
 }
 #pluralkit {
 	width: 50%;	
@@ -365,9 +373,9 @@ summary {
 	table-layout: fixed;
 	margin: 0 auto
 }
-#pluralkit dl { 
+/*#pluralkit dl { 
 	text-align: left;
-}
+} */
 
 #navigation li { 
 	display: inline-block; 
