@@ -147,7 +147,7 @@ p {
 	text-align: left;
 	hyphens: auto;
 	line-height: 1.5;
-	text-indent: 32pt;
+	white-space: pre;
 }
 
 body li {
