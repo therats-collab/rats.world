@@ -4,7 +4,8 @@ async function updateMembers() {
     var fronterNameList = [];
     var fronterPronounList = [];
     var fronterAvatarList = [];
-    var fronterDescList = []
+    var fronterDescList = [];
+    const regex = /<:[a-zA-Z0-9_]*:[0-9]{18}>/g;
 
     console.log("[DEBUG] updateMembers() has started! Hooray!")
 
@@ -152,6 +153,7 @@ async function updateMembers() {
             console.log(String(data.members[i].description))
           } else {
             fronterDesc = data.members[i].description;
+            fronterDesc = fronterDesc.replace(regex, ""); 
             fronterDescList.push(fronterDesc);
           }
          }
