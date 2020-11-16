@@ -10,7 +10,7 @@ async function updatePK() {
   //     type: 'conjunction'
   // });
 
-// /s/jjorc/members stuff
+// /s/mouse/members stuff
   // if count is in session storage, assume days/ids/names are too, and get them
   if (sessionStorage.getItem("count")) {
       $("#ratCount").text(sessionStorage.getItem("count"));
@@ -20,7 +20,7 @@ async function updatePK() {
 
   } else {
       // if count isn't in session storage, harasses the pluralkit API and gets #ratCount, #daysSince, #ratIDs, #ratNames
-      jQuery.get("https://api.pluralkit.me/v1/s/jjorc/members", function(data) {
+      jQuery.get("https://api.pluralkit.me/v1/s/mouse/members", function(data) {
           // #ratCount stuff
           $("#ratCount").text(data.length);
           sessionStorage.setItem("count", data.length);
