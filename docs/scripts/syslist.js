@@ -10,7 +10,7 @@ async function updateSysList() {
     var defaultBirthday = "n/a";
     console.log("[DEBUG] updateSysList() has started! Hooray!");
 
-// /s/jjorc/fronters stuff
+// /s/mouse/fronters stuff
   // if fronters is in session storage, assume each fronters name, pronouns, desc, and avatar is too, and get them all
     if (sessionStorage.getItem("fronters")) {
         console.log("[DEBUG] Found fronter info in sessionStorage, not harassing the API.");
@@ -20,7 +20,7 @@ async function updateSysList() {
     } else {
         console.log("[DEBUG] Couldn't find fronter info in sessionStorage, using jQuery to harass the API.");
         // if fronters isn't in session storage, harasses the pluralkit API and gets #fronter0Name/#fronter0Pronouns/#fronter0Avatar/#fronter0Desc/#fronterID
-        jQuery.get("https://cors-anywhere.herokuapp.com/https://api.pluralkit.me/v1/s/jjorc/members", function(data) {
+        jQuery.get("https://cors-anywhere.herokuapp.com/https://api.pluralkit.me/v1/s/mouse/members", function(data) {
         
         // //// data.members.length stuff ////
         //     // [dq] iif no one iin front, dii2able prev and next nav
